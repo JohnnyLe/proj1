@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+	<default>
+		<reference name="header">
+			<remove name="top.search"/>
+		</reference>
+        <reference name="cart_sidebar">
+            <action method="addItemRender"><type>picasso</type><block>picasso/checkout_cart_item_renderer</block><template>checkout/cart/sidebar/default.phtml</template></action>
+        </reference>
+	</default>
+    <PRODUCT_TYPE_picasso translate="label" module="picasso">
+        <label>Catalog Product View (Picasso)</label>
+        <reference name="head">
+            <action method="setTitle"><title>Picasso</title></action>
+            <action method="addItem"><type>skin_js</type><name>sm/js/jquery-ui-1.8.21.custom.min.js</name><params/></action>
+            <action method="addItem"><type>skin_js</type><name>sm/js/jquery.simplemodal-1.4.3.js</name><params/></action>
+            <action method="addItem"><type>skin_js</type><name>sm/js/jquery.mousewheel.min.js</name><params/></action>
+            <action method="addItem"><type>skin_js</type><name>sm/js/jquery.iviewer.js</name><params/></action>
+            <action method="addItem"><type>skin_js</type><name>sm/js/jquery.jsa.js</name><params/></action>
+            <action method="addItem"><type>skin_js</type><name>sm/js/jquery.json-2.3.min.js</name><params/></action>
+            <action method="addItem"><type>skin_js</type><name>sm/js/jsShare.js</name><params/></action>
+            <action method="addItem"><type>skin_js</type><name>sm/js/jquery.Jcrop.min.js</name><params/></action>
+            <action method="addItem"><type>skin_js</type><name>sm/js/jquery.slider.min.js</name><params/></action>
+            <action method="addItem"><type>skin_js</type><name>sm/js/fileuploader.js</name><params/></action>
+            <action method="addItem"><type>skin_js</type><name>sm/js/jquery.qtip-1.0.0.min.js</name><params/></action>
+            <action method="addItem"><type>skin_js</type><name>sm/js/SQLike.js</name><params/></action>
+
+
+            <action method="addItem"><type>skin_js</type><name>sm/js/app.js</name><params/></action>
+            
+            <action method="addItem"><type>skin_css</type><name>sm/css/dark-hive/jquery-ui-1.8.21.custom.css</name><params/></action>
+            
+            <action method="addItem"><type>skin_css</type><name>sm/css/app.css</name><params/></action>
+            <action method="addItem"><type>skin_css</type><name>sm/css/jsShare.css</name><params/></action>
+            <action method="addItem"><type>skin_css</type><name>sm/css/jquery.Jcrop.min.css</name><params/></action>
+            <action method="addItem"><type>skin_css</type><name>sm/css/jquery.slider.min.css</name><params/></action>
+        </reference>
+        <reference name="root">
+        	<remove name="breadcrumbs"/>
+           	<action method="setTemplate"><template>sm/picasso/page/1column-full.phtml</template></action>
+           	<action method="setHeaderTitle" translate="title"><title>Checkout</title></action>
+           	<remove name="header"/>
+           	<remove name="footer"/>
+        </reference>
+        
+        <reference name="product.info">
+            <action method="setTemplate"><template>sm/picasso/catalog/product/view.phtml</template></action>
+        	<block type="picasso/imageEditor" name="image_editor" template="sm/picasso/image_editor.phtml">
+				<block type="catalog/product_view" name="product.info.options.wrapper" as="product_options_wrapper" template="catalog/product/view/options/wrapper.phtml" translate="label">
+                    <label>Info Column Options Wrapper</label>
+                    <block type="core/template" name="options_js" template="catalog/product/view/options/js.phtml"/>
+                    <block type="catalog/product_view_options" name="product.info.options" as="product_options" template="catalog/product/view/options.phtml">
+                        <action method="addOptionRenderer"><type>text</type><block>catalog/product_view_options_type_text</block><template>catalog/product/view/options/type/text.phtml</template></action>
+                        <action method="addOptionRenderer"><type>file</type><block>catalog/product_view_options_type_file</block><template>catalog/product/view/options/type/file.phtml</template></action>
+                        <action method="addOptionRenderer"><type>select</type><block>catalog/product_view_options_type_select</block><template>catalog/product/view/options/type/select.phtml</template></action>
+                        <action method="addOptionRenderer"><type>date</type><block>catalog/product_view_options_type_date</block><template>catalog/product/view/options/type/date.phtml</template></action>
+					</block>
+                    <block type="core/html_calendar" name="html_calendar" as="html_calendar" template="page/js/calendar.phtml"/>
+                </block>
+        	</block>
+        	<reference name="product.info.options">
+	        	<action method="setTemplate"><template>sm/picasso/catalog/product/view/options.phtml</template></action>
+	        </reference>
+        </reference>
+        <reference name="product.clone_prices">
+            <action method="addPriceBlockType"><type>picasso</type><block>catalog/product_price</block><template>catalog/product/view/price_clone.phtml</template></action>
+        </reference>
+
+        <reference name="product.info.options">
+            <action method="removeOptionRenderer"><type>text</type></action>
+            <action method="addOptionRenderer"><type>text</type><block>catalog/product_view_options_type_text</block><template>sm/picasso/catalog/product/view/options/type/text.phtml</template></action>
+        </reference>
+
+    </PRODUCT_TYPE_picasso>
+    <checkout_cart_index>
+        <reference name="checkout.cart">
+            <action method="addItemRender"><type>picasso</type><block>picasso/checkout_cart_item_renderer</block><template>sm/picasso/checkout/cart/item/default.phtml</template></action>
+        </reference>
+    </checkout_cart_index>
+</layout>

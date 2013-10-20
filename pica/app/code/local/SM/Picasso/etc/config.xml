@@ -1,0 +1,175 @@
+<?xml version="1.0"?>
+<config>
+	<modules>
+		<SM_Picasso>
+			<version>1.1.1</version>
+			<platform>ee</platform>
+		</SM_Picasso>
+	</modules>
+
+	<global>
+		<blocks>
+			<picasso>
+				<class>SM_Picasso_Block</class>
+			</picasso>
+			<adminhtml>
+				<rewrite>
+					<catalog_product_edit_tab_options_type_select>SM_Picasso_Block_Override_Adminhtml_Catalog_Product_Edit_Tab_Options_Type_Select</catalog_product_edit_tab_options_type_select>
+					<catalog_product_edit_tab_options_option>SM_Picasso_Block_Override_Adminhtml_Catalog_Product_Edit_Tab_Options_Option</catalog_product_edit_tab_options_option>
+				</rewrite>
+			</adminhtml>
+			<catalog>
+				<rewrite>
+					<product_view_options_type_select>SM_Picasso_Block_Override_Catalog_Product_View_Options_Type_Select</product_view_options_type_select>
+					<product_view_options>SM_Picasso_Block_Override_Catalog_Product_View_Options</product_view_options>
+				</rewrite>
+			</catalog>
+		</blocks>
+		
+		<models>
+			<picasso>
+				<class>SM_Picasso_Model</class>
+				<resourceModel>picasso_mysql4</resourceModel>
+			</picasso>
+			<picasso_mysql4>
+				<class>SM_Picasso_Model_Mysql4</class>
+				<entities>
+					<group>
+						<table>sm_picasso_group</table>
+					</group>
+					<group_option>
+						<table>sm_picasso_group_option</table>
+					</group_option>
+					<effect>
+						<table>sm_picasso_effect</table>
+					</effect>
+					
+					<product_option_description>
+                        <table>catalog_product_option_description</table>
+                    </product_option_description>
+					
+				</entities>
+			</picasso_mysql4>
+			
+			<catalog>
+                <rewrite>
+                    <product_option>SM_Picasso_Model_Override_Catalog_Product_Option</product_option>
+                </rewrite>
+            </catalog>
+		</models>
+		
+		<resources>
+            <picasso_setup>
+                <setup>
+                    <module>SM_Picasso</module>
+                    <class>Mage_Sales_Model_Mysql4_Setup</class>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </picasso_setup>
+            <picasso_write>
+				<connection>
+					<use>core_write</use>
+				</connection>
+			</picasso_write>
+			<picasso_read>
+				<connection>
+					<use>core_read</use>
+				</connection>
+			</picasso_read>
+        </resources>
+
+		<helpers>
+			<picasso>
+				<class>SM_Picasso_Helper</class>
+			</picasso>
+		</helpers>
+		
+		<catalog>
+            <product>
+                <type>
+                    <picasso translate="label" module="picasso">
+                        <label>Picasso</label>
+                        <model>picasso/catalog_product_type</model>
+                        <is_qty>1</is_qty>
+                        <index_data_retreiver>picasso/catalogIndex_data_picasso</index_data_retreiver>
+                        <price_model>picasso/catalog_product_price</price_model>
+                        <composite>0</composite>
+                    </picasso>
+                </type>
+			</product>        
+        </catalog>		
+	</global>
+
+	<frontend>
+		<layout>
+			<updates>
+				<picasso>
+					<file>sm/picasso.xml</file>
+				</picasso>
+			</updates>
+		</layout>
+		
+		<routers>
+			<picasso>
+				<use>standard</use>
+				<args>
+					<module>SM_Picasso</module>
+					<frontName>picasso</frontName>
+				</args>
+			</picasso>
+		</routers>
+		<events>
+			<checkout_cart_product_add_after>
+				<observers>
+                    <checkout_cart_product_add_after>
+						<type>singleton</type>
+                        <class>picasso/observer</class>
+                        <method>hookCheckoutCartProductAddAfter</method>
+                    </checkout_cart_product_add_after>
+                </observers>
+			</checkout_cart_product_add_after>
+			<checkout_cart_product_update_after>
+				<observers>
+                    <checkout_cart_product_update_after>
+						<type>singleton</type>
+                        <class>picasso/observer</class>
+                        <method>hookCheckoutCartProductAddAfter</method>
+                    </checkout_cart_product_update_after>
+                </observers>
+			</checkout_cart_product_update_after>
+		</events>
+	</frontend>
+
+	<admin>
+		<routers>
+			<adminhtml>
+				<args>
+					<modules>
+						<picasso before="Mage_Adminhtml">SM_Picasso_Adminhtml</picasso>
+					</modules>
+				</args>
+			</adminhtml>
+		</routers>
+	</admin>
+
+	<adminhtml>
+		<layout>
+			<updates>
+				<picasso>
+					<file>sm/picasso.xml</file>
+				</picasso>
+			</updates>
+		</layout>
+	</adminhtml>
+	<default>
+		<picasso>
+			<general>
+				<gimp_path>gimp</gimp_path>
+				<image_file_size_allow>0.5</image_file_size_allow>
+				<file_extension_allow>jpg,jpeg,png,gif,bmp,tiff</file_extension_allow>
+			</general>
+		</picasso>
+	</default>	
+</config>

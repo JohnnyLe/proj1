@@ -1,0 +1,11 @@
+Old Photo 5 Effect:
+
+- Open image and select layer 1: Filters / Artistic / Photocopy...
+- Mask radius: 40.00 / Sharpness: 1.000 / Percent black: 0.500 / Percent white: 0.300
+- Select current layer: Filters / Blur / Gaussian Blur...
+- Blur Radius: Horizontal 5.0 / Vertical 5.0 / Blur Method: RLE
+- Current layer: Colors / Level...
+- Input Levels: 75 / 0.50 / 255
+
+
+DONE!!!

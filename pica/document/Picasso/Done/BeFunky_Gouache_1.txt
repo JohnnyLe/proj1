@@ -1,0 +1,23 @@
+(after setup other filter)
+
+Gouache1 Effect:
+
+- Open image and select layer: Script-Fu / Artist / WaterColor
+- Effect Size (pixels): 3
+
+- Select current layer: Colors / Hue-Saturation...
+- Overlap: 0 / Hue: 5 / Lightness: 0 / Saturation: 50
+
+- Colors / Curves...
+- Channel: Value / X = 145, Y = 170
+
+- Colors / Levels...
+- Channel: Value / Input Levels: 100 - 1.50 - 180
+
+- Colors / Brightness-Contrast...
+- Brightness: 80 / Contrast: 0
+
+- Colors / Levels...
+- Channel: Value / Input Levels: 60 - 1.40 - 230
+
+DONE!!!

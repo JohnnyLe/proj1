@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<config>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <picasso>
+                                        <title>SmartOsc</title>
+                                    </picasso>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+					<picasso module="picasso">
+						<title>Picasso</title>
+						<sort_order>40</sort_order>
+						<children>
+			                <effect module="picasso">
+			                    <title>Effect Manager</title>
+			                    <sort_order>21</sort_order>
+			                </effect>
+			                <group module="picasso">
+			                    <title>Group Effect Manager</title>
+			                    <sort_order>20</sort_order>
+			                </group>
+							<group_option module="picasso">
+			                    <title>Group Option Manager</title>
+			                    <sort_order>20</sort_order>
+			                </group_option>
+						</children>
+					</picasso>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+	<menu>
+		<picasso>
+			<title>Picasso</title>
+			<sort_order>80</sort_order>
+			<children>				
+				<effect module="picasso">
+					<title>Effect Manager</title>
+					<sort_order>40</sort_order>
+					<action>adminhtml/effect/index</action>
+				</effect>
+				<group module="picasso">
+					<title>Group Effect Manager</title>
+					<sort_order>41</sort_order>
+					<action>adminhtml/groupEffect/index</action>
+				</group>
+				<group_option module="picasso">
+					<title>Group Option Manager</title>
+					<sort_order>42</sort_order>
+					<action>adminhtml/groupOption/index</action>
+				</group_option>
+			</children>
+		</picasso>
+	</menu>
+</config>

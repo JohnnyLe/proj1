@@ -1,0 +1,6 @@
+<?php
+
+class SM_Picasso_Model_Mysql4_Catalog_Product_Option_Collection extends SM_Picasso_Model_Resource_Eav_Mysql4_Product_Option_Collection
+{
+   
+}

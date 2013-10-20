@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<config>
+	<tabs>
+        <sm translate="label" module="picasso">
+            <label>SmartOsc Extensions</label>
+            <sort_order>400</sort_order>
+        </sm>
+    </tabs>
+	<sections>
+		<picasso translate="label" module="picasso">
+			<label>Picasso</label>
+			<tab>sm</tab>
+			<frontend_type>text</frontend_type>
+			<sort_order>777</sort_order>
+			<show_in_default>1</show_in_default>
+			<show_in_website>1</show_in_website>
+			<show_in_store>1</show_in_store>
+			<groups>
+				<general>
+					<label>General</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>90</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<gimp_path translate="label">
+							<label>Gimp Path</label>
+							<comment></comment>
+							<frontend_type>text</frontend_type>
+							<sort_order>100</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<can_be_empty>1</can_be_empty>
+						</gimp_path>
+						<image_file_size_allow translate="label">
+							<label>Image File Size Allow</label>
+							<comment>Unit MB</comment>
+							<frontend_type>text</frontend_type>
+							<sort_order>100</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<can_be_empty>1</can_be_empty>
+						</image_file_size_allow>
+						<file_extension_allow>
+							<label>Image File Extension Allow</label>
+							<comment>Separate by simicolon. Example jpg,png</comment>
+							<frontend_type>text</frontend_type>
+							<sort_order>100</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<can_be_empty>1</can_be_empty>
+						</file_extension_allow>
+						<default_effect>
+							<label>Default Effect</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>picasso/system_config_source_effect</source_model>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+						</default_effect>	
+					</fields>	
+				</general>		
+			</groups>
+		</picasso>
+	</sections>
+</config>

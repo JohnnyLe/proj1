@@ -1,0 +1,23 @@
+Oilpainting3 Effect:
+
+- Open image and select layer: Colors / Hue-Saturation...
+- Overlap: 0 / Hue: 0 / Lightness: 0 / Saturation: 30
+
+- Filters / Artistic / Oilify...
+- Mask size: 5 / Exponent: 5 / Use intensity algorithm: check
+
+- Colors / Brightness-Contrast...
+- Brightness: 35 / Contrast: 90
+
+- Filters / Artistic / Van Gogh (LIC)...
+- Effect Channel: Brightness / Effect Operator: Gradient / Convolve: With source image
+- Filter length: 5.0 / Noise magnitude: 2.0 / Intergration steps: 25.0 / Minimum value: -25.0 / Maximum value: 25.0
+
+- Filters / Artistic / Apply Canvas...
+- Direction: Top-right / Depth: 2
+
+- Open image and select layer: Colors / Hue-Saturation...
+- Overlap: 0 / Hue: 0 / Lightness: -5 / Saturation: -10
+
+
+DONE!!!

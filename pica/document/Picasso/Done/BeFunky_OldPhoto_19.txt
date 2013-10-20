@@ -1,0 +1,14 @@
+Old Photo 19 Effect:
+
+- Open image and select layer 1: Desaturate... / Lightness
+- Current layer: Colors / Level...
+- Input Levels: 65 / 2.50 / 215
+- Colors / Brightness-Contrast...
+- Brightness: 30 / Contrast: 10
+
+- Create a New Layer >>> layer 2, fill color: #968956. Raise on top.
+- Layer mode: Burn	 / Opacity: 25	
+
+
+
+DONE!!!

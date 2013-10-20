@@ -1,0 +1,12 @@
+(after setup other filter)
+
+Charcoal Effect:
+
+- Open image and select layer 1: Filters / Artistic / Photocopy...
+- Mask radius: 12.00 / Sharpness: 1.000 / Percent black: 0.200 / Percent white: 0.500
+- Layer mode: Normal.
+
+- Create a New Layer >>> layer 2, fill color: #000000. Raise on top.
+- Layer mode: Grain merge / Opacity: 10
+
+DONE!!!

@@ -1,0 +1,19 @@
+(after setup other filter)
+
+Sepia Effect:
+
+- Open image and select layer 1: Filters / Blur / Selective Gaussian Blur...
+- Blur radius: 1 / Max. delta: 50
+- Layer mode: Normal.
+
+- Select layer 1 and duplicate >>> layer 2. Raise on top.
+- Select layer 2: Color / Hue-Saturation...
+- Hue: 0 / Lightness: 0 / Saturation: -100
+- Layer mode: Normal / Opacity: 20
+
+- Create a New Layer >>> layer 3, fill color: #725a38
+- Layer mode: Color
+- Select layer 3: Color / Hue-Saturation...
+- Hue: 0 / Lightness: 0 / Saturation: -25
+
+DONE!!!

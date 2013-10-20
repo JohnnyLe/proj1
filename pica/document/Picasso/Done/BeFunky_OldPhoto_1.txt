@@ -1,0 +1,30 @@
+Old Photo 1 Effect:
+
+- Open image and select layer 1: Filters / Artistic / Photocopy...
+- Mask radius: 35.00 / Sharpness: 1.000 / Percent black: 0.300 / Percent white: 0.300
+- Select current layer: Colors / Curves...
+- Channel: Value / X = 115, Y = 170
+
+- Create a New layer >>> layer 2: copy/paste and full scale image "smoke_texture.jpg". Raise on top.
+- Layer mode: Multiply / Opacity: 75
+
+- Create a New Layer >>> layer 3, fill color: #FFD799. Raise on top.
+- Layer mode: Multiply / Opacity: 100
+
+DONE!!!
+
+--------------------- or -------------------------
+
+Old Photo 1 Effect
+
+- Open image and select layer 1: Filters / Decor / Old Photo...
+- Defocus: check / Border size: 0 / Sepia: uncheck / Mottle: check / Work on copy: uncheck.
+
+- Create a New layer >>> layer 2: fill: #dbb77f. Raise on top.
+- Layer mode: Multiply / Opacity: 100
+
+- Select layer 1: Colors / Desaturate... / Lightness
+- Colors / Levels...
+- Channel: Value / Input Levels: 50 - 1.35 - 255
+
+DONE!!!

@@ -1,0 +1,610 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     default_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+
+<script type="text/javascript">
+//<![CDATA[
+OptionTemplateSelect = '<table class="border" cellpadding="0" cellspacing="0">'+
+        '<input type="hidden" class="required-option-select-type-rows" name="validation_{{option_id}}_result" value="" >'+
+        '<thead>'+
+        '<tr class="headings">'+
+            '<th class="type-title"><?php echo Mage::helper('catalog')->__('Title') ?> <span class="required">*</span></th>'+
+            <?php if ($this->getCanReadPrice() !== false) : ?>
+            '<th class="type-price"><?php echo Mage::helper('catalog')->__('Price') ?></th>' +
+            '<th class="type-type"><?php echo Mage::helper('catalog')->__('Price Type') ?></th>' +
+            <?php endif; ?>
+            '<th class="type-sku"><?php echo Mage::helper('catalog')->__('SKU') ?></th>'+
+            '<th class="type-order"><?php echo Mage::helper('catalog')->__('Sort Order') ?></th>'+
+            '<th class="type-butt last">&nbsp;</th>'+
+        '</tr>'+
+        '</thead>'+
+        '<tbody id="select_option_type_row_{{option_id}}">'+
+        '</tbody>'+
+        '<tfoot>'+
+        '<tr>'+
+        '<td colspan="100" class="a-right"><?php echo $this->getAddButtonHtml() ?></td>'+
+        '</tr>'+
+        '</tfoot>'+
+    '</table>';
+
+OptionTemplateSelectRow = '<tr id="product_option_{{id}}_select_{{select_id}}">'+
+            '<td>'+
+            '<input type="hidden" name="product[options][{{id}}][values][{{select_id}}][option_type_id]" value="{{option_type_id}}">'+
+            '<input type="hidden" id="product_option_{{id}}_select_{{select_id}}_is_delete" name="product[options][{{id}}][values][{{select_id}}][is_delete]" value="">'+
+            '<input type="text" class="required-entry input-text select-type-title" id="product_option_{{id}}_select_{{select_id}}_title" name="product[options][{{id}}][values][{{select_id}}][title]" value="{{title}}">{{checkboxScopeTitle}}</td>'+
+            <?php if ($this->getCanReadPrice() !== false) : ?>
+            '<td><input type="text" class="input-text validate-number product-option-price" id="product_option_{{id}}_select_{{select_id}}_price" name="product[options][{{id}}][values][{{select_id}}][price]" value="{{price}}"<?php if ($this->getCanEditPrice() === false) : ?> disabled="disabled"<?php endif; ?>></td>' +
+            '<td><?php echo $this->getPriceTypeSelectHtml() ?>{{checkboxScopePrice}}</td>' +
+            <?php else : ?>
+            '<input type="hidden" id="product_option_{{id}}_select_{{select_id}}_price" name="product[options][{{id}}][values][{{select_id}}][price]">' +
+            '<input type="hidden" name="product[options][{{id}}][values][{{select_id}}][price_type]" id="product_option_{{id}}_select_{{select_id}}_price_type">' +
+            <?php endif; ?>
+            '<td><input type="text" class="input-text" name="product[options][{{id}}][values][{{select_id}}][sku]" value="{{sku}}"></td>'+
+            '<td><input type="text" class="validate-zero-or-greater input-text" name="product[options][{{id}}][values][{{select_id}}][sort_order]" value="{{sort_order}}"></td>'+ 
+            '<td class="last"><span title="Delete row"><?php echo $this->getDeleteButtonHtml() ?></span></td>'+
+        '</tr>';
+
+selectOptionType = {
+    div : 'select_option_type_row',
+    itemCount : 0,
+    templateSyntax : /(^|.|\r|\n)({{(\w+)}})/,
+    templateText : OptionTemplateSelectRow,
+    add : function(data) {
+
+        this.template = new Template(this.templateText, this.templateSyntax);
+
+        if (data.target || data.srcElement) {//data is Event (work in IE and Firefox)
+            element = $(Event.findElement(data, 'button'));
+            optionId = element.readAttribute('id').sub('add_select_row_button_', '');
+            data = {};
+            data.option_type_id = '-1';
+            data.select_id = this.itemCount;
+        } else {
+            optionId = data.option_id;
+            data.select_id = data.option_type_id;
+            this.itemCount = data.item_count;
+        }
+
+        data.id  = optionId;
+
+        Element.insert($(this.div+'_'+data.id), {'bottom':this.template.evaluate(data)});
+
+        if (data.checkboxScopeTitle) {
+            //set disabled
+            if ($('product_option_'+data.id+'_select_'+data.select_id+'_title') && data.scopeTitleDisabled) {
+                $('product_option_'+data.id+'_select_'+data.select_id+'_title').disable();
+            }
+        }
+        if (data.checkboxScopePrice) {
+            //set disabled
+            if ($('product_option_'+data.id+'_select_'+data.select_id+'_price') && data.scopePriceDisabled) {
+                $('product_option_'+data.id+'_select_'+data.select_id+'_price').disable();
+                $('product_option_'+data.id+'_select_'+data.select_id+'_price_type').disable();
+            }
+        }
+
+        if (data.price_type) {
+            $A($('product_option_'+data.id+'_select_'+data.select_id+'_price_type').options).each(function(option){
+                if (option.value==data.price_type) option.selected = true;
+            });
+        }
+
+        this.itemCount++;
+        this.bindRemoveButtons();
+    },
+    remove : function(event){
+        var element = $(Event.findElement(event, 'tr'));
+
+        if(element){
+            $(element.readAttribute('id')+'_is_delete').value = '1';
+            element.addClassName('no-display');
+            element.addClassName('ignore-validate');
+            element.hide();
+        }
+    },
+    bindRemoveButtons : function(){
+        var buttons = $$('.delete-select-row');
+        for(var i=0;i<buttons.length;i++){
+            if(!$(buttons[i]).binded){
+                $(buttons[i]).binded = true;
+                Event.observe(buttons[i], 'click', this.remove.bind(this));
+            }
+        }
+    },
+    bindAddButton : function()
+    {
+        var buttons = $$('.add-select-row');
+        for(var i=0;i<buttons.length;i++){
+            if(!$(buttons[i]).binded){
+                $(buttons[i]).binded = true;
+                Event.observe(buttons[i], 'click', this.add.bind(this));
+            }
+        }
+    }
+}
+
+if ($('option_panel_type_select')) {
+    $('option_panel_type_select').remove();
+}
+
+selectOptionType.bindRemoveButtons();
+
+Validation.addAllThese([
+    ['required-option-select-type-rows', <?php echo $this->helper('core')->jsonEncode(Mage::helper('catalog')->__('Please add rows to option.')); ?>, function(v, elm) {
+            var optionContainerElm = elm.up('div.grid');
+            var selectTypesFlag = false;
+            selectTypeElements = $$('#'+optionContainerElm.id+' .select-type-title');
+            selectTypeElements.each(function(elm){
+                if (elm.id && elm.up('tr').visible()) {
+                    selectTypesFlag = true;
+                }
+            });
+            elm.advaiceContainer = optionContainerElm.id+'_advice';
+        return selectTypesFlag;
+}]]);
+
+if($('add_select_row_button')){
+    Event.observe('add_select_row_button', 'click', selectOptionType.add.bind(selectOptionType));
+}
+//]]>
+</script>
+
+<script type="text/javascript">
+//<![CDATA[
+
+var catalogWysiwygEditor = {
+    overlayShowEffectOptions : null,
+    overlayHideEffectOptions : null,
+    open : function(editorUrl, elementId) {
+        if (editorUrl && elementId) {
+            new Ajax.Request(editorUrl, {
+                parameters: {
+                    element_id: elementId+'_editor',
+                    store_id: '0'
+                },
+                onSuccess: function(transport) {
+                    try {
+                        this.openDialogWindow(transport.responseText, elementId);
+                    } catch(e) {
+                        alert(e.message);
+                    }
+                }.bind(this)
+            });
+        }
+    },
+    openDialogWindow : function(content, elementId) {
+        this.overlayShowEffectOptions = Windows.overlayShowEffectOptions;
+        this.overlayHideEffectOptions = Windows.overlayHideEffectOptions;
+        Windows.overlayShowEffectOptions = {duration:0};
+        Windows.overlayHideEffectOptions = {duration:0};
+
+        Dialog.confirm(content, {
+            draggable:true,
+            resizable:true,
+            closable:true,
+            className:"magento",
+            windowClassName:"popup-window",
+            title:'WYSIWYG Editor',
+            width:950,
+            height:555,
+            zIndex:1000,
+            recenterAuto:false,
+            hideEffect:Element.hide,
+            showEffect:Element.show,
+            id:"catalog-wysiwyg-editor",
+            buttonClass:"form-button",
+            okLabel:"Submit",
+            ok: this.okDialogWindow.bind(this),
+            cancel: this.closeDialogWindow.bind(this),
+            onClose: this.closeDialogWindow.bind(this),
+            firedElementId: elementId
+        });
+
+        content.evalScripts.bind(content).defer();
+
+        $(elementId+'_editor').value = $(elementId).value;
+    },
+    okDialogWindow : function(dialogWindow) {
+        if (dialogWindow.options.firedElementId) {
+            wysiwygObj = eval('wysiwyg'+dialogWindow.options.firedElementId+'_editor');
+            wysiwygObj.turnOff();
+            if (tinyMCE.get(wysiwygObj.id)) {
+                $(dialogWindow.options.firedElementId).value = tinyMCE.get(wysiwygObj.id).getContent();
+            } else {
+                if ($(dialogWindow.options.firedElementId+'_editor')) {
+                    $(dialogWindow.options.firedElementId).value = $(dialogWindow.options.firedElementId+'_editor').value;
+                }
+            }
+        }
+        this.closeDialogWindow(dialogWindow);
+    },
+    closeDialogWindow : function(dialogWindow) {
+        // remove form validation event after closing editor to prevent errors during save main form
+        if (typeof varienGlobalEvents != undefined && editorFormValidationHandler) {
+            varienGlobalEvents.removeEventHandler('formSubmit', editorFormValidationHandler);
+        }
+
+        //IE fix - blocked form fields after closing
+        $(dialogWindow.options.firedElementId).focus();
+
+        //destroy the instance of editor
+        wysiwygObj = eval('wysiwyg'+dialogWindow.options.firedElementId+'_editor');
+        if (tinyMCE.get(wysiwygObj.id)) {
+           tinyMCE.execCommand('mceRemoveControl', true, wysiwygObj.id);
+        }
+
+        dialogWindow.close();
+        Windows.overlayShowEffectOptions = this.overlayShowEffectOptions;
+        Windows.overlayHideEffectOptions = this.overlayHideEffectOptions;
+    }
+};
+
+//]]>
+</script>
+<script type="text/javascript">
+//<![CDATA[
+
+  opHeadingTemplate =    '<th class="type-image">Image</th>';
+  opButtonTemplate =    '&nbsp;<button  id="id_505c950dbec207116ac871018a6e0aa2" type="button" class="scalable " onclick="instOptionImages.massUploadByType(\'links\')" style=""><span>Upload Images</span></button>';
+
+  opRowTemplate     =     '<td>'+
+											'<div class="files" style="width:135px;">'+
+												'<div  id="{{id}}_{{select_id}}_uploader_place-holder" onmouseover="instOptionImages.loadUploader(\'{{id}}\',\'{{select_id}}\')">' +
+													'<span>{{roll_over}}</span>' +
+												'</div>' +			
+												'<div id="{{id}}_{{select_id}}_uploader_row" style="display:none"  class="hide_uploader_row">'+				
+													'<div class="row" >'+
+														'<input type="hidden" class="validate-optionimages-file" id="optionimages_link_{{id}}_{{select_id}}_file_save" name="product[options][{{id}}][values][{{select_id}}][image]" value="" />'+
+														'<div id="optionimages_link_{{id}}_{{select_id}}_file" class="uploader">'+
+															'<div id="optionimages_link_{{id}}_{{select_id}}_file-old" class="file-row-info"></div>'+
+															'<div id="optionimages_link_{{id}}_{{select_id}}_file-new" class="file-row-info new-file"></div>'+
+															'<div class="buttons">'+
+																'<div id="optionimages_link_{{id}}_{{select_id}}_file-install-flash" style="display:none">'+
+																	'This content requires last version of Adobe Flash Player. <a href="http://www.adobe.com/go/getflash/">Get Flash</a>'+
+																'</div>'+
+															'</div>'+
+														'</div>'+
+														'<div id="optionimages_link_{{id}}_{{select_id}}_file_save_advice"></div>'+	
+													'</div>'+
+												'</div>'+												
+											'</div>'+			
+										'</td>';
+OptionImages = Class.create();
+OptionImages.prototype = {
+    uploaderObj : $H({}),
+    headingTemplate : opHeadingTemplate,
+    buttonTemplate : opButtonTemplate,	
+    opRowTemplate : opRowTemplate,	
+    templatePattern : /(^|.|\r|\n)({{(\w+)}})/,	
+    rowTemplate : null,
+	config : [],
+	initialize : function(config){
+		this.config = config;
+		this.rowTemplate = new Template(this.opRowTemplate, this.templatePattern);		
+	},
+    setUploaderObj : function(type, key, obj){
+        if (!this.uploaderObj.get(type)) {
+            this.uploaderObj.set(type, $H({}));
+        }
+        this.uploaderObj.get(type).set(key, obj);
+    },
+    getUploaderObj : function(type, key){
+        try {
+            return this.uploaderObj.get(type).get(key);
+        } catch (e) {
+            try {
+                console.log(e);
+            } catch (e2) {
+                alert(e.name + '\n' + e.message);
+            }
+        }
+    },
+    unsetUploaderObj : function(type, key){
+        try {
+            this.uploaderObj.get(type).unset(key);
+        } catch (e) {
+            try {
+                console.log(e);
+            } catch (e2) {
+                alert(e.name + '\n' + e.message);
+            }
+        }
+    },
+    massUploadByType : function(type){
+        try {
+				this.uploaderObj.get(type).each(function(item){
+				row = item.value.container.up('div.hide_uploader_row');					
+                container = item.value.container.up('tr');
+				div = item.value.container.up('div.option-box');
+				if(row.visible()){
+					if (container.visible() && !container.hasClassName('no-display') && !div.hasClassName('no-display')) {
+						item.value.upload();
+					} else {
+						this.unsetUploaderObj(type, item.key);
+					}
+				}
+            }.bind(this));
+        } catch (e) {
+          //  try {
+                //console.log(e);
+          //  } catch (e2) {
+              //  alert(e.name + '\n' + e.message);
+           // }
+        }
+    },
+    loadImage : function(id, imagesrc){
+		$(id+'_img').src = imagesrc;
+		$(id+'_img').show();
+		$(id+'_place-holder').hide();		
+    },
+    loadUploader : function(id, select_id){	
+		$(id+'_'+select_id+'_uploader_place-holder').hide();
+		$(id+'_'+select_id+'_uploader_row').show();		
+		if (this.config[id] && this.config[id][select_id]){
+			image = this.config[id][select_id][0];
+			imageId = 'optionimages_link_'+id+'_'+select_id+'_file';
+			this.loadImage(imageId, image.url);
+		}			
+    },
+    insertHeading : function(body){
+		table = body.down('table.border');
+		w = table.getStyle('width');
+		w.sub(/[0-9]+/, function(match){
+			  w = parseInt(match[0]);
+		 });
+		w += 150;
+		w += 'px';
+		table.setStyle({'width': w}); 
+		Element.insert(body.down('th.last'), {'before' : this.headingTemplate});				
+		Element.insert(body.down('tfoot').down('td'), {'bottom' : this.buttonTemplate});			 
+	},	
+	 insertRow : function(table, id, select_id){
+				
+		if (this.config[id] && this.config[id][select_id]){
+			image = this.config[id][select_id];
+			roll_over = 'Roll Over for Preview';
+		} else {
+			image = [];
+			roll_over = 'Roll Over for Uploader';
+		}
+		
+		Element.insert(table.down('td.last'), {'before' : this.rowTemplate.evaluate({
+				'id' : id,
+				'select_id' : select_id,
+				'roll_over' : roll_over						
+			})});
+			
+		linkUrl = $('optionimages_link_'+id+'_'+select_id+'_file');
+
+		new OptionImages.FileUploader(
+			'links',
+			'links_'+id+'_'+select_id,
+			linkUrl.up('td'),
+			'optionimages[link]['+id+'_'+select_id+']',
+			image,
+			'optionimages_link_'+id+'_'+select_id+'_file',
+			<?php echo $this->getUploaderJsonConfig()?>
+			);		
+	}
+};
+
+
+var uploaderOITemplate = '<div class="no-display" id="[[idName]]-template">' +
+                            '<div id="{{id}}" class="file-row file-row-narrow">' +
+                                '<span class="file-info">' +
+                                    '<span class="file-info-name">{{name}}</span>' +
+                                    ' ' +
+                                    '<span class="file-info-size">({{size}})</span>' +
+                                '</span>' +
+                                '<span class="progress-text"></span>' +
+                                '<div class="clear"></div>' +
+                            '</div>' +
+                        '</div>' +
+                            '<div class="no-display" id="[[idName]]-template-progress">' +
+                            '{{percent}}% {{uploaded}} / {{total}}' +
+                            '</div>';
+
+var fileListOITemplate =  '<div class="place-holder" id="{{id}}_place-holder" onmouseover="instOptionImages.loadImage(\'{{id}}\',\'{{url}}\')">' +
+										'<span>Roll Over for Preview</span>' +
+									'</div>' +
+									'<img src="http://hottons.com/demo/oi/skin/adminhtml/default/default/images/spacer.gif" id="{{id}}_img" width="40" style="display:none;" alt="" />';
+
+
+
+
+OptionImages.FileUploader = Class.create();
+OptionImages.FileUploader.prototype = {
+    type : null,
+    key : null, //key, identifier of uploader obj
+    elmContainer : null, //insert Flex object and templates to elmContainer
+    fileValueName : null, //name of field of JSON data of saved file
+    fileValue : null,
+    idName : null, //id name of elements for unique uploader
+    uploaderText: uploaderOITemplate,
+    uploaderSyntax : /(^|.|\r|\n)(\[\[(\w+)\]\])/,
+    uploaderObj : $H({}),
+    config : null,
+    initialize: function (type, key, elmContainer, fileValueName, fileValue ,idName, config) {
+        this.type = type;
+        this.key = key;
+        this.elmContainer = elmContainer;
+        this.fileValueName = fileValueName;
+        this.fileValue = fileValue;
+        this.idName = idName;
+        this.config = config;
+        uploaderOITemplate = new Template(this.uploaderText, this.uploaderSyntax);
+
+        Element.insert(
+            elmContainer,
+            {'top' : uploaderOITemplate.evaluate({
+                    'idName' : this.idName,
+                    'fileValueName' : this.fileValueName,
+                    'uploaderObj' : 'instOptionImages.getUploaderObj(\''+this.type+'\', \''+this.key+'\')'
+                })
+            }
+        );
+        if ($(this.idName+'_save')) {
+            $(this.idName+'_save').value = Object.toJSON(this.fileValue);
+        }
+        instOptionImages.setUploaderObj(
+            this.type,
+            this.key,
+            new Flex.Uploader(this.idName, '<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA)?>picasso/uploaderSingle.swf', this.config)
+        );
+		
+        if (varienGlobalEvents) {
+            varienGlobalEvents.attachEventHandler('tabChangeBefore', instOptionImages.getUploaderObj(type, key).onContainerHideBefore);
+        }
+        new OptionImages.FileList(this.idName, instOptionImages.getUploaderObj(type, key));
+
+    }
+}
+
+OptionImages.FileList = Class.create();
+OptionImages.FileList.prototype = {
+    file: [],
+    containerId: '',
+    container: null,
+    uploader: null,
+    fileListOITemplate: fileListOITemplate,
+    templatePattern : /(^|.|\r|\n)({{(\w+)}})/,
+    listTemplate : null,
+    initialize: function (containerId, uploader) {
+        this.containerId  = containerId,
+        this.container = $(this.containerId);
+        this.uploader = uploader;
+        this.uploader.onFilesComplete = this.handleUploadComplete.bind(this);
+        this.file = this.getElement('save').value.evalJSON();
+        this.listTemplate = new Template(this.fileListOITemplate, this.templatePattern);
+        this.updateFiles();
+        this.uploader.onFileRemoveAll = this.handleFileRemoveAll.bind(this);
+        this.uploader.onFileSelect = this.handleFileSelect.bind(this);
+    },
+    handleFileRemoveAll: function(fileId) {
+        $(this.containerId+'-new').hide();
+        $(this.containerId+'-old').show();
+    },
+    handleFileSelect: function() {
+        $(this.containerId+'_type').checked = true;
+    },
+    getElement: function (name) {
+        return $(this.containerId + '_' + name);
+    },
+    handleUploadComplete: function (files) {
+        files.each(function(item) {
+           if (!item.response.isJSON()) {
+             alert('Your session has been expired. Please, reload the page and upload images if necessary');
+             return;
+           }
+           var response = item.response.evalJSON();
+           if (response.error) {
+               return;
+           }
+           var newFile = {};
+           newFile.file = response.file;
+           newFile.name = response.name;
+           newFile.size = response.size;
+           newFile.status = 'new';
+		   newFile.url = response.url; 
+           this.file[0] = newFile;
+           this.uploader.removeFile(item.id);
+        }.bind(this));
+        this.updateFiles();
+    },
+    updateFiles: function() {
+        this.getElement('save').value = Object.toJSON(this.file);
+        this.file.each(function(row){
+			row.id = this.containerId;
+            $(this.containerId + '-old').innerHTML = this.listTemplate.evaluate(row);
+            $(this.containerId + '-new').hide();
+            $(this.containerId + '-old').show();
+        }.bind(this));
+    }
+}
+
+var alertAlreadyDisplayed = false;
+
+Validation.addAllThese([
+    ['validate-optionimages-file', 'Please upload an image.', function(v,element) {
+			newFileContainer = element.up(0).down('div.new-file');		
+            if ((v == '' || v == '[]') && !newFileContainer.empty() && newFileContainer.visible()) {
+                if (!alertAlreadyDisplayed ) {
+                    alertAlreadyDisplayed = true;
+                    alert('There are images that were selected but not uploaded yet. Please upload or remove them first');
+                }
+					 element.advaiceContainer = element.id + '_advice';					 
+                return false;
+            }
+            return true;
+        }]
+    ]);
+
+
+
+instOptionImages = new OptionImages(<?php echo $this->getOptionImages()?>);
+Element._oiInsert = Element.insert;
+Element.insert = function (element, insertions) {
+	this._oiInsert(element, insertions);
+	element = $(element);
+	if (element.id){
+		optionRegex = /^product_option_\d+$/;
+		optionRowRegex = /^select_option_type_row_\d+$/;
+		if (element.id.match(optionRegex)){
+			regex = /product_option_(\d+)_type_select/;
+			ids = insertions.after.match(regex);
+			if (ids){
+				if (!selectOptionType._add){
+					selectOptionType._add = selectOptionType.add;
+					selectOptionType.add = function (data) {
+						previous = this.itemCount;
+						this._add(data);
+					  if (data.target || data.srcElement) {
+							element = $(Event.findElement(data, 'button'));
+							id = element.readAttribute('id').sub('add_select_row_button_', '');
+							select_id = previous;
+					  } else {
+							id = data.option_id;						  
+							select_id = data.option_type_id;
+					  }
+						if (this.itemCount <= previous)
+							this.itemCount = previous + 1;					
+					}
+				} 
+				body = $(ids[0]);
+				instOptionImages.insertHeading(body);
+			}
+		}	 else if(element.id.match(optionRowRegex)){
+			regex = /product_option_(\d+)_select_(\d+)/;
+			ids  = insertions.bottom.match(regex);
+			if(ids){			
+				table = $(element.lastChild);
+				instOptionImages.insertRow(table, ids[1], ids[2]);	
+			}
+		}	
+	}	
+ }
+//]]>  
+</script>

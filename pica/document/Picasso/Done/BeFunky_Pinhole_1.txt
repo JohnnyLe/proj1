@@ -1,0 +1,29 @@
+(after setup other filter)
+
+Pinhole_1 Effect:
+
+- Open image and select layer 1: Colors / Desaturate... / Lightness
+
+- Select current layer: Colors / Levels...
+- Channel: Value / Input Levels: 95 - 2.6 - 175
+
+- Script-Fu / Effects / Cross Light
+- Light Length: 40 / Start Angle: 40 / Number of Lights: 2 / Threshold: 255 >>> layer 2 on top
+
+- Select layer 1: Filters / Blur / Motion Blur...
+- Blur type: Linear / Blur Parameters: Length 3; Angle 40.
+
+- Colors / Levels...
+- Channel: Value / Input Levels: 50 - 0.8 - 215
+
+- Select layer 2 and create a new transparency layer >>> layer 3 on top
+Select / All
+Select / Shrink:10px
+Select / Rounded & rectangle: radius 50%
+Select / Invert
+Select / Feather: feather selection: 50px
+Select / None
+Duplicate fill layer 3, fill #000000 - opacity: 90%
+
+
+DONE!

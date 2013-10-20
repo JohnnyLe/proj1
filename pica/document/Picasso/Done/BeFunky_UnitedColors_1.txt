@@ -1,0 +1,34 @@
+United Colors 1 Effect:
+
+- Open image and select layer: Colors / Levels...
+- Channel: Value / Input Levels: 90 - 0.90 - 190 / Output Levels: 0 - 255
+
+- Colors / Desaturate... / Lightness
+
+- Colors / Color to Alpha...
+- From: # FFFFFF to alpha
+
+- Colors / Invert
+
+- Create a New Layer >>> layer 2, fill color: #FFEA00. Raise on bottom.
+
+- Select layer 1: Colors / Colority...
+- Custom color: #FF4800
+
+----------------------------- or ------------------------------------
+
+- Open image and select layer: Colors / Brightness-Contract...
+- Brightness: 30 / Contrast: 20
+- Current layer: Filters / Noise / Pick...
+- Random seed: 10 / Randomization (%): 10 / Repeat: 1
+- Current layer: Colors / Levels...
+- Channel: Value / Input Levels: 25 - 1.25 - 255 / Output Levels: 0 -255
+- Current layer: Colors / Hue-Saturation...
+- Hue: 0 / Lightness: 10 / Saturation: -100
+
+
+- Create a New Layer >>> layer 2, fill color: #FF7D00
+- Layer mode: Hard light.
+
+
+DONE!!!

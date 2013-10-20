@@ -1,0 +1,16 @@
+Grunge 6 Effect:
+
+- Open image and select layer 1: Filters / Enhance / Unsharp Mask...
+- Radius: 130.0 / Amount: 2.00 / Threshold: 0
+
+- Colors / Desaturate... / Lighness
+
+- Duplicate layer 1 >>> layer 2
+- Layer mode: Dodge / Opacity: 100
+
+- Create a New layer >>> layer 3 (transparency). Raise on top.
+- Filters / Render / Clouds / Plasma...
+- Random seed: tick Randomize / Turbulence: 1.0
+- Color mode: Soft light / Opacity: 100
+
+DONE!!!

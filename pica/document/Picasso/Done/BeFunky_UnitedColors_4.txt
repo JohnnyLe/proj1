@@ -1,0 +1,19 @@
+United Colors 4 Effect:
+
+- Open image and select layer: Colors / Levels...
+- Channel: Value / Input Levels: 90 - 0.90 - 190 / Output Levels: 0 - 255
+
+- Colors / Desaturate... / Lightness
+
+- Colors / Color to Alpha...
+- From: # FFFFFF to alpha
+
+- Colors / Invert
+
+- Create a New Layer >>> layer 2, fill color: #244E27. Raise on bottom.
+
+- Select layer 1: Colors / Colority...
+- Custom color: # F4A5EA
+
+
+DONE!!!

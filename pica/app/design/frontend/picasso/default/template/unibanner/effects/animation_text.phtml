@@ -1,0 +1,87 @@
+<?php
+/**
+ * Unicode Systems
+ * @category   Uni
+ * @package    Uni_Banner
+ * @copyright  Copyright (c) 2010-2011 Unicode Systems. (http://www.unicodesystems.in)
+ * @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php
+    $bannerGroupCode = $this->getBannerGroupCode();
+    $data = $this->getDataByGroupCode($bannerGroupCode);
+    $bannerGroupData = $data['group_data'];
+    $mediaDir = Mage::getBaseDir('media');
+    $bannerData = $data['banner_data'];
+    $baneff = $bannerGroupData->getBannerEffects();
+    $prebaneff = $bannerGroupData->getPreBannerEffects();
+    $bannerdest = (($bannerGroupData->getLinkTarget() == 0) ? '_blank' : '_self');
+    $bannerType = $bannerGroupData->getAnimationType();
+    $bannerWidth = $bannerGroupData->getBannerWidth();
+    $bannerHeight = $bannerGroupData->getBannerHeight();
+    $styleBWH = 'width: ' . $bannerWidth . 'px; height: ' . $bannerHeight . 'px;';
+    $duration = Mage::getStoreConfig('banner/banner/banner_time_delay');
+    $autoplay = Mage::getStoreConfig('banner/banner/banner_autoplay');
+    $durat = $duration / 1000;
+
+    $imageWidth = ((int) $bannerWidth - 1);
+    $imageHeight = ((int) $bannerHeight - 2);
+    $styleWH = 'width: ' . $imageWidth . 'px; height: ' . $imageHeight . 'px;';
+?>
+<link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow&v1' rel='stylesheet' type='text/css' />
+<link href='http://fonts.googleapis.com/css?family=Wire+One&v1' rel='stylesheet' type='text/css' />
+<link rel="stylesheet" type="text/css" href="<?php echo $this->getSkinUrl('unibanner/css/stimenu.css') ?>" media="all" />
+<script type="text/javascript" src="<?php echo $this->getSkinUrl('unibanner/js/jquery.easing.1.3.js') ?>"></script>
+<script type="text/javascript" src="<?php echo $this->getSkinUrl('unibanner/js/jquery.iconmenu.js') ?>"></script>
+<div>
+<ul id="sti-menu" class="sti-menu">
+	<?php
+            $i = 0;
+            foreach ($bannerData as $banner):
+                $i++;
+                $v = "imgglid" . $i;
+                $bannerPath = $banner->getFilename();
+                $bannerCon = $banner->getBannerContent();
+                $bannerTitle = $banner->getTitle();
+                $bannerType = $banner->getBannerType();
+                $bannerLink = $banner->getLink();
+                if ($bannerType == 0):
+                    $bannerImage = '';
+                    if ($bannerPath != '' && @file_exists($mediaDir . DS . $bannerPath)):
+                        $bannerImage = $this->getResizeImage($bannerPath, $bannerGroupCode, $imageWidth, $imageHeight);
+                    endif;
+                    $bannerLink = $banner->getLink();
+                    if ($bannerImage != '') :
+            ?>
+                 
+            <li data-hovercolor="#37c5e9">
+				<a href="#">
+					<h2 data-type="mText" class="sti-item"><?php echo $bannerTitle; ?></h2>
+					<h3 data-type="sText" class="sti-item"><?php echo $bannerCon;?></h3>
+					<span data-type="icon" class="sti-icon sti-item" style="background-image:url('<?php echo $bannerImage; ?>')"></span>
+				</a>
+			</li>
+            <?php endif;
+                    else: ?>
+                        <div class="section" id="section<?php echo $i; ?>"><a href="<?php echo (($bannerLink) ? $bannerLink : 'javascript:'); ?>" <?php echo (($bannerLink)?'target="'.$bannerdest.'"':''); ?> title="<?php echo $bannerTitle; ?>"><?php echo $bannerCon; ?></a></div>
+            <?php endif;
+                    endforeach; ?>
+</ul>
+</div>
+<script type="text/javascript">
+	jQuery(document).ready(function() {
+		jQuery('#sti-menu').iconmenu({
+			animMouseenter	: {
+				'mText' : {speed : 400, easing : 'easeOutExpo', delay : 140, dir : -1},
+				'sText' : {speed : 400, easing : 'easeOutExpo', delay : 280, dir : -1},
+				'icon'  : {speed : 400, easing : 'easeOutExpo', delay : 0, dir : -1}
+			},
+			animMouseleave	: {
+				'mText' : {speed : 400, easing : 'easeInExpo', delay : 140, dir : -1},
+				'sText' : {speed : 400, easing : 'easeInExpo', delay : 0, dir : -1},
+				'icon'  : {speed : 400, easing : 'easeInExpo', delay : 280, dir : -1}
+			},
+			defaultBgColor:'#fff'
+		});
+	});
+</script>

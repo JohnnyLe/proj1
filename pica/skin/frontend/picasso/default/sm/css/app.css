@@ -1,0 +1,153 @@
+.qq-uploader { position:relative; width: 100%;}
+
+.qq-upload-button {
+    display:block; /* or inline-block */
+    width: 105px; padding: 7px 0; text-align:center;    
+    background:black;
+    
+}
+.qq-upload-button-hover,.qq-upload-button:hover {background:#003147;}
+.qq-upload-button-focus {outline:1px dotted black;}
+
+.qq-upload-drop-area {
+    position:absolute; top:0; left:0; width:100%; height:100%; min-height: 70px; z-index:2;
+    background:#FF9797; text-align:center; 
+}
+.qq-upload-drop-area span {
+    display:block; position:absolute; top: 50%; width:100%; margin-top:-8px; font-size:16px;
+}
+.qq-upload-drop-area-active {background:#FF7171;}
+
+.qq-upload-list {margin:15px 35px; padding:0; list-style:disc;}
+.qq-upload-list li { margin:0; padding:0; line-height:15px; font-size:12px;}
+.qq-upload-file, .qq-upload-spinner, .qq-upload-size, .qq-upload-cancel, .qq-upload-failed-text {
+    margin-right: 7px;
+}
+
+.qq-upload-file {}
+.qq-upload-spinner {display:inline-block; background: url("../images/loading28.gif"); width:15px; height:15px; vertical-align:text-bottom;}
+.qq-upload-size,.qq-upload-cancel {font-size:11px;}
+
+.qq-upload-failed-text {display:none;}
+.qq-upload-fail .qq-upload-failed-text {display:inline;}
+
+.iviewer_common {
+    position:absolute;
+    bottom:10px;
+    border: 1px  solid #000;
+    height: 28px;
+    z-index: 5000;
+}
+
+.iviewer_cursor {
+    cursor: url(../images/hand.cur) 6 8, pointer;
+}
+
+.iviewer_drag_cursor {
+    cursor: url(../images/grab.cur) 6 8, pointer;
+}
+
+.iviewer_button {
+    width: 28px;
+    cursor: pointer;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.iviewer_zoom_in {
+    left: 20px;
+    background: url(../images/iviewer.zoom_in.gif);
+}
+
+.iviewer_zoom_out {
+    left: 55px;
+    background: url(../images/iviewer.zoom_out.gif);
+}
+
+.iviewer_zoom_zero {
+    left: 90px;
+    background: url(../images/iviewer.zoom_zero.gif);
+}
+
+.iviewer_zoom_fit {
+    left: 125px;
+    background: url(../images/iviewer.zoom_fit.gif);
+}
+
+.iviewer_zoom_status {
+    left: 160px;
+    font: 1em/28px Sans;
+    color: #000;
+    background-color: #fff;
+    text-align: center;
+    width: 60px;
+}
+
+.iviewer_rotate_left {
+    left: 227px;
+    background: #fff url(../images/iviewer.rotate_left.png) center center no-repeat;
+}
+
+.iviewer_rotate_right {
+    left: 262px;
+    background: #fff url(../images/iviewer.rotate_right.png) center center no-repeat;
+}
+
+#image-editor-main-image{
+	background-image:url(../images/loading10.gif);
+	background-repeat:no-repeat;
+	background-position:center;
+	width:100%;
+	height:652px;
+    border: 1px solid black;
+    position: relative;
+}
+#image-editor-image-list{
+	background-color:#fff;
+	color:black;
+	width:100%;
+}
+.image-editor-col-left{
+	width:25%;
+	float:left;
+	font-family: 'Oswald';
+    overflow-y: auto;
+    height: 715px;
+}
+.image-editor-col-main{
+	width:75%;
+	float:left;
+	overflow: hidden;
+	background-image:url(../images/halloween_bgd.jpg)
+}
+#toolbar {
+	padding: 10px 10px;
+}
+.ui-button-text-only .ui-button-text{padding: 1.4em 1em;}
+.selectable .ui-selecting { background: #FECA40; }
+.selectable .ui-selected, .options-list .selected{ background: #F39814; color: white; }
+.selectable { list-style-type: none; margin: 0; padding: 0; }
+.selectable div.ui-state-default { 
+	margin: 3px; padding: 1px; float: left; width: 100px; height: 80px; font-size: 4em; text-align: center; 
+	background-image:url(../images/loading28.gif);
+	background-repeat:no-repeat;
+	background-position:center;
+	overflow:hidden;
+}
+.selectable li{
+	width:110px;
+	font-family: 'Oswald';
+	float:left
+}
+.selectable div.ui-state-default img{	
+	margin-left: auto;
+    margin-right: auto;
+    width:auto;
+    height:100%
+}
+.ui-widget-header{padding: 5px}
+
+#apply-crop-button{margin:10px;float:right}
+#crop-button{margin:10px;float:left}
+.brightness-contrast{margin-bottom:20px;padding:10px}
+.qq-upload-button {cursor: pointer;cursor: hand;}

@@ -1,0 +1,19 @@
+(after setup other filter)
+
+Watercolor Effect:
+
+- Open image and duplicate layer 1 >>> layer 2
+- Select layer 2: Script-Fu / Photo effects / artist / water paint effect...
+- Effect Size (pixels): 5 (defaut)
+- Layer mode: Normal.
+
+- Select layer 1 and duplicate >>> layer 3. Raise on top.
+- Select layer 3: Filters / artistic / GIMPressionist... / ev_drybrush.txt
+- Layer mode: Screen.
+
+- Select layer 1 and duplicate again >>> layer 4. Raise on top.
+- Select layer 4: Filters / enhance / despeckle...
+- Median: Adaptive / Radius: 10 / Black level: 0 / White level: 256
+- Layer mode: Soft light.
+
+DONE!!!

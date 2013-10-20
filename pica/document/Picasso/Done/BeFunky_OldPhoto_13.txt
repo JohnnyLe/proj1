@@ -1,0 +1,22 @@
+Old Photo 13 Effect:
+
+
+- Open image and select layer 1: Filters / Decor / Oldphoto...
+- Defocus: check / Border size: 2 / Sepia, mottle, work on copy: uncheck
+
+- Open image and select layer 1: Desaturate... / Lightness
+
+- Current layer: Colors / Level...
+- Input Levels: 80 / 0.90 / 200
+
+- Colors / Curves...
+- Channel: Value / X = 60, Y = 120
+
+- Filters / Blur / Gaussian Blur...
+- Blur Radius: Horizontal 3.0 ; Vertical 3.0 / Blur method: RLE
+
+- Create a New Layer >>> layer 2, fill color: #725a38. Raise on top.
+- Layer mode: Color / Opacity: 100
+
+
+DONE!!!

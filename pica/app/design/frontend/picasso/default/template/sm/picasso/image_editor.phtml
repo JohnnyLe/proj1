@@ -1,0 +1,128 @@
+<?php $groupsEffect = $this->getGroupsEffect()?>
+<?php $_product = $this->getProduct()?>
+<div id="effect-container">
+    <div class="image-editor-col-left">
+        <div id="resizable" class="ui-widget-content">
+            <h3 class="ui-widget-header"><?php echo $this->__("Action")?></h3>
+            <div style="position:relative;padding:10px">
+                <div style="float:left;width: 100%">
+                    <div id="file-uploader-demo1"></div>
+                </div>
+                <div style="position: absolute; left: 47%;">
+                    <ul><li style="float:left">Price :</li><li style="float:left"><?php echo $this->getPriceHtml($_product, true) ?></li></ul>
+                    <input type="hidden" name="file-image-selected" id="file-image-selected" value="<?php echo $this->getBuyRequest('file-image-selected')?>" />
+                    <input type="hidden" name="effect-selected" id="effect-selected" value="<?php echo $this->getBuyRequest('effect-selected')?>" />
+                    <input type="hidden" name="org-image-path" id="org-image-path" value="<?php echo $this->getBuyRequest('org-image-path')?>" />
+                    <input type="hidden" name="image-effects" id ="image-effects" value="<?php echo $this->getBuyRequest('image-effects')?>" />
+                    <input type="hidden" name="org_image_src" id="org-image-src" value="<?php echo $this->getBuyRequest('org_image_src')?>" />
+                    <input type="hidden" name="crop_select" id="crop-select" value="<?php echo $this->getBuyRequest('crop_select')?>" />
+                    <input type="hidden" name="final_price" id="final_price" value="<?php echo $this->getBuyRequest('final_price')?>" />
+                    <input type="hidden" name="upload_list" id="upload_list" value="<?php echo $this->getBuyRequest('upload_list')?>" />
+                    <input type="hidden" name="upload_selected" id="upload_selected" value="<?php echo $this->getBuyRequest('upload_selected')?>" />
+                    <input type="hidden" name="file-path-image-selected" id="file-path-image-selected" value="<?php echo $this->getBuyRequest('file-path-image-selected')?>" />
+                </div>
+            </div>
+            <div style="clear: both"></div>
+        </div>
+
+        <div class="ui-widget-content">
+            <h3 class="ui-widget-header"><?php echo $this->__("Tool")?></h3>
+            <div class="crop-tool">
+                <!--div id="apply-crop-button" class="qq-upload-button"><?php echo $this->__('Apply')?></div-->
+                <div id="crop-button" class="qq-upload-button"><?php echo $this->__('Crop Image')?></div>
+                <div style="clear: both"></div>
+                <div id="org-image-upload-container" style="padding:10px">
+                    <img style="width:100%;display:none" src="" id="org-image-upload"/>
+
+                </div>
+                <img style="display:none" src="" id="org-image-upload-clone"/>
+            </div>
+
+            <div style="clear: both"></div>
+
+            <div class="brightness-contrast">
+                <label><?php echo $this->__('Brightness')?></label>
+                <input id="brightness-control" type="slider" name="brightness" value="20" /><br/><br/>
+                <label><?php echo $this->__('Contrast')?></label>
+                <input id="contrast-control" type="slider" name="contrast" value="20" />
+            </div>
+
+        </div>
+
+        <div id="resizable" class="ui-widget-content">
+            <h3 class="ui-widget-header"><?php echo $this->__("Effects")?></h3>
+            <div id="image-editor-effect-list" class="ui-accordion ui-widget ui-helper-reset ui-accordion-icons">
+                <?php foreach($groupsEffect as $group):?>
+                    <div>
+                        <h3 class="effect-accordion-header ui-accordion-header ui-helper-reset ui-state-default ui-state-active ui-corner-top" role="tab" aria-expanded="true" aria-selected="true" tabindex="0"><span class="ui-icon ui-icon-triangle-1-s"></span><a href="#"><?php echo $group['name']?></a></h3>
+                        <!--<h3><a href="#"><?php echo $group['name']?></a></h3>-->
+                        <div class="effect-accordion-content ui-accordion-content ui-helper-reset ui-widget-content ui-corner-bottom ui-accordion-content-active" role="tabpanel">
+                            <ol class="selectable">
+                                <?php foreach($group['effects'] as $effect):?>
+                                    <li title="<?php echo $effect['name'] ?>" id="image-effect-<?php echo $effect['id']?>" effect="<?php echo $effect['code']?>" effect_id="<?php echo $effect['id']?>" default_brightness="<?php echo $effect['default_brightness']?>" default_contrast="<?php echo $effect['default_contrast']?>">
+                                        <div class="ui-state-default effect-thumb">
+                                            <?php
+                                                $imgUrl = Mage::helper('picasso')->getImageUrl($effect['image']);
+                                                $size = Mage::helper('picasso')->getImageThumbSize($effect['image']);
+                                                $file_exist = Mage::helper('picasso')->getFileExists($effect['image']);
+                                                if (is_array($size) && $file_exist){
+                                                    echo '<img  src="'.$imgUrl.'"/>';
+                                                }
+                                            ?>
+                                        </div>
+                                        <div style="bottom:0px;text-align: center"><?php echo $effect['name'] ?></div>
+                                    </li>
+                                <?php endforeach;?>
+                            </ol>
+                        </div>
+                    </div>
+                    <div style="clear: both;"></div>
+                <?php endforeach;?>
+            </div>
+        </div>
+        <div id="image-editor-image-list"></div>
+    </div>
+    <div class="image-editor-col-main">
+        <div class="picasso-toolbar">
+            <div class="social-media-share" id="save-effect" style="color:black;float:left;text-align: center;font-size: 20pt">ORDER</div>
+            <div class="social-media-share" id="save-image" style="width:100px;color:black;float:left;text-align: center;font-size: 20pt;margin-left:20px">SAVE</div>
+            <div id="share-buttons" style="float:left;margin-left:20px"></div>
+
+        </div>
+        <div style="clear:both"></div>
+        <div id="image-editor-main-image" class="viewer">
+            <div style="background:none;z-index: 99999999;position:absolute;top:45%;left:35%;width: 310px;height: 60px;cursor: hand;" class="qq-upload-button">
+                <div style="direction: ltr;position: relative;overflow: hidden;width: 310px;height: 60px;">
+                    <input style="position:absolute;font-size: 200px;top: 0px;right: 0px;"  type="file"  id="ajax-upload-file2"/>
+                </div>
+            </div>
+            <div class="upload-image" id="upload-image">Upload Image
+            </div>
+        </div>
+    </div>
+    <iframe style="display:none" id="download-frame" src=""></iframe>
+</div>
+
+<div class="ui-widget-content" id="custom-painting" style="width:auto;display:none">
+    <h3 class="ui-widget-header"><?php echo $this->__("Custom Painting")?></h3>
+    <div id="image-editor-custom-painting">
+        <?php echo $this->getChildHtml('product_options_wrapper')?>
+    </div>
+    <div style="float:right;margin:20px" class="qq-upload-button"><ul><li style="float:left;padding-left: 10px;">Price: </li><li style="float:left"><?php echo $this->getPriceHtml($_product, false, '_clone') ?></li></ul></div>
+    <div style="float:right;margin:20px" id="back-edit-image"  class="qq-upload-button"><?php echo $this->__('Edit Image')?></div>
+    <div style="float:right;margin:20px" id="add-to-cart" class="qq-upload-button"><?php echo $this->__('Add To Cart')?></div>
+    <div style="float:right;margin:25px">
+        <label for="qty"><?php echo $this->__('Qty:') ?></label>
+        <input type="text" name="qty" id="qty" maxlength="12" value="<?php echo $this->getProductDefaultQty() * 1 ?>" title="<?php echo $this->__('Qty') ?>" class="input-text qty" />
+    </div>
+
+    <div style="clear:both"></div>
+</div>
+
+<script>
+    appSettings = <?php echo $this->getDefaultConfig()?>;
+    <?php if($editJsonConfig = $this->getEditJsonConfig()):?>
+    appSettings.currentImageEdit = <?php echo $editJsonConfig?>;
+        <?php endif;?>
+
+</script>

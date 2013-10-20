@@ -1,0 +1,22 @@
+Oilpainting2 Effect:
+
+- Open image and select layer: Colors / Hue-Saturation...
+- Overlap: 0 / Hue: 0 / Lightness: 0 / Saturation: 30
+
+- Filters / Artistic / Oilify...
+- Mask size: 5 / Exponent: 5 / Use intensity algorithm: check
+
+- Colors / Brightness-Contrast...
+- Brightness: 35 / Contrast: 90
+
+- Create a new layer >>> layer 2: fill color: #FF0000. Raise on top.
+- Layer mode: Dodge.
+
+- Duplicate layer 1. Raise on top.
+- Layer mode: Value /  Opacity: 35.0
+
+- Select layer 1: Filters / Blur / Gaussian Blur...
+- Blur Radius: 2.0 - 2.0 / Blur Method: RLE
+
+
+DONE!!!

@@ -1,0 +1,9 @@
+HDR 1 Effect:
+
+- Open image and select layer 1: Filters / Enhance / Unsharp Mask...
+- Radius: 60.0 / Amount: 1.00 / Threshold: 0
+
+- Colors / Hue-Saturation...
+- Overlap: 0 / Hue: 0 / Lightness: 0 / Satuaration: -12
+
+DONE!!!

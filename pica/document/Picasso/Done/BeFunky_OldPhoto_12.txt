@@ -1,0 +1,19 @@
+Old Photo 12 Effect:
+
+
+- Open image and select layer: Desaturate... / Lightness
+
+- Curent layer: Colors / Brightness-Contrast...
+- Brightness: 15 / Contrast: 45
+
+- Colors / Level...
+- Input Levels: 55 / 1.00 / 255
+
+- Create a New layer >>> layer 2: copy/paste and full scale image "old_paper.jpg". Raise on top.
+- Layer mode: Multiply / Opacity: 100
+
+- Dulicate layer 2. Raise on top.
+- Layer mode: Multiply / Opacity: 30
+
+
+DONE!!!

@@ -1,0 +1,110 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2010 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php
+/**
+ * Product list template
+ *
+ * @see Mage_Catalog_Block_Product_List
+ */
+?>
+<?php $_gallery = $this->_getGallery(); ?>
+<?php if ($_gallery) : ?>
+    <div class="page-title igallery-title">
+        <h1><?php echo $this->stripTags($_gallery->getName(), null, true) ?></h1>
+    </div>
+    <?php if($_description = $_gallery->getDescription()): ?>
+    <div class="igallery-description std">
+        <?php echo $_description; ?>
+    </div>
+    <?php endif; ?>
+<?php endif; ?>
+
+<?php $_imageCollection = $this->_getCollection(); ?>
+<?php if(!$_imageCollection->count()): ?>
+<p class="note-msg"><?php echo $this->__('There are no images matching the selection.') ?></p>
+<?php else: ?>
+<div class="category-products igallery-images">
+
+    <div class="toolbar-top">
+        <?php //echo $this->getToolbarHtml(); ?>
+    </div>
+    <ul id="myGallery" class="products-grid">
+    <?php foreach ($_imageCollection as $_image): ?>
+        
+            <li>
+               <img data-description="<?php echo $this->stripTags($_image->getLabel(), null, true) ?>" data-frame="<?php echo $this->helper('igallery')->getImageUrl($_image->getFile()); ?>" src="<?php echo $this->helper('igallery')->getImageUrl($_image->getFile()); ?>" alt="<?php echo $this->stripTags($_image->getLabel(), null, true) ?>" title="<?php echo $this->stripTags($_image->getLabel(), null, true) ?>" />
+            </li>
+        
+    <?php endforeach ?>
+    </ul>
+    <script type="text/javascript">decorateGeneric($$('ul.my-igallery-grid'), ['odd','even','first','last'])</script>
+
+    <div class="toolbar-bottom">
+        <?php //echo $this->getToolbarHtml(); ?>
+    </div>
+</div>
+<div>
+	<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('footer_gallery')->toHtml()?>
+</div>
+<script type="text/javascript">
+	jQuery(function(){
+		jQuery('#myGallery').galleryView({
+		transition_speed: 2000, 		//INT - duration of panel/frame transition (in milliseconds)
+		transition_interval: 4000, 		//INT - delay between panel/frame transitions (in milliseconds)
+		easing: 'swing', 				//STRING - easing method to use for animations (jQuery provides 'swing' or 'linear', more available with jQuery UI or Easing plugin)
+		show_panels: true, 				//BOOLEAN - flag to show or hide panel portion of gallery
+		show_panel_nav: false, 			//BOOLEAN - flag to show or hide panel navigation buttons
+		enable_overlays: true, 			//BOOLEAN - flag to show or hide panel overlays
+		
+		panel_width: 900, 				//INT - width of gallery panel (in pixels)
+		panel_height: 500, 				//INT - height of gallery panel (in pixels)
+		panel_animation: 'slide', 		//STRING - animation method for panel transitions (crossfade,fade,slide,none)
+		panel_scale: 'crop', 			//STRING - cropping option for panel images (crop = scale image and fit to aspect ratio determined by panel_width and panel_height, fit = scale image and preserve original aspect ratio)
+		overlay_position: 'bottom', 	//STRING - position of panel overlay (bottom, top)
+		pan_images: true,				//BOOLEAN - flag to allow user to grab/drag oversized images within gallery
+		pan_style: 'drag',				//STRING - panning method (drag = user clicks and drags image to pan, track = image automatically pans based on mouse position
+		pan_smoothness: 15,				//INT - determines smoothness of tracking pan animation (higher number = smoother)
+		start_frame: 1, 				//INT - index of panel/frame to show first when gallery loads
+		show_filmstrip: true, 			//BOOLEAN - flag to show or hide filmstrip portion of gallery
+		show_filmstrip_nav: true, 		//BOOLEAN - flag indicating whether to display navigation buttons
+		enable_slideshow: false,			//BOOLEAN - flag indicating whether to display slideshow play/pause button
+		autoplay: false,				//BOOLEAN - flag to start slideshow on gallery load
+		show_captions: true, 			//BOOLEAN - flag to show or hide frame captions	
+		filmstrip_size: 3, 				//INT - number of frames to show in filmstrip-only gallery
+		filmstrip_style: 'scroll', 		//STRING - type of filmstrip to use (scroll = display one line of frames, scroll filmstrip if necessary, showall = display multiple rows of frames if necessary)
+		filmstrip_position: 'bottom', 	//STRING - position of filmstrip within gallery (bottom, top, left, right)
+		frame_width: 164, 				//INT - width of filmstrip frames (in pixels)
+		frame_height: 80, 				//INT - width of filmstrip frames (in pixels)
+		frame_opacity: 0.5, 			//FLOAT - transparency of non-active frames (1.0 = opaque, 0.0 = transparent)
+		frame_scale: 'crop', 			//STRING - cropping option for filmstrip images (same as above)
+		frame_gap: 5, 					//INT - spacing between frames within filmstrip (in pixels)
+		show_infobar: true,				//BOOLEAN - flag to show or hide infobar
+		infobar_opacity: 1				//FLOAT - transparency for info bar
+		});
+	});
+</script>
+<?php endif; ?>
