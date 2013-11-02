@@ -384,109 +384,110 @@ App.ImageEditor = function(settings) {
                 }
         	});
         	$('#save-effect').click(function(){
-                $('#effect-container').hide();
-                //show customer painting option
-                $('#custom-painting').show();
-                $('h3.group-option-tooltip').each(function(){
-                    $(this).qtip(
-                        {
-                            content: {
-                                title: {
-                                    text: $(this).text(),
-                                    button: 'Close'
+                    $('#effect-container').hide();
+                    //show customer painting option
+                    $('#custom-painting').show();
+                    $('#sub-group-option-1, #sub-group-option-3').hide();
+                    $('h3.group-option-tooltip').each(function(){
+                        $(this).qtip(
+                            {
+                                content: {
+                                    title: {
+                                        text: $(this).text(),
+                                        button: 'Close'
+                                    },
+                                    text: $(this).attr('description')
                                 },
-                                text: $(this).attr('description')
-                            },
-                            position: {
-                                target: $(document.body), // Position it via the document body...
-                                corner: 'center' // ...at the center of the viewport
-                            },
-                            show: {
-                                when: 'click', // Show it on click
-                                solo: true // And hide all other tooltips
-                            },
-                            hide: false,
-                            style: {
-                                width: { max: 350 },
-                                padding: '14px',
-                                border: {
-                                    width: 9,
-                                    radius: 9,
-                                    color: '#666666'
+                                position: {
+                                    target: $(document.body), // Position it via the document body...
+                                    corner: 'center' // ...at the center of the viewport
                                 },
-                                name: 'light'
-                            },
-                            api: {
-                                beforeShow: function()
-                                {
-                                    // Fade in the modal "blanket" using the defined show speed
-                                    $('#qtip-blanket').fadeIn(this.options.show.effect.length);
+                                show: {
+                                    when: 'click', // Show it on click
+                                    solo: true // And hide all other tooltips
                                 },
-                                beforeHide: function()
-                                {
-                                    // Fade out the modal "blanket" using the defined hide speed
-                                    $('#qtip-blanket').fadeOut(this.options.hide.effect.length);
+                                hide: false,
+                                style: {
+                                    width: { max: 350 },
+                                    padding: '14px',
+                                    border: {
+                                        width: 9,
+                                        radius: 9,
+                                        color: '#666666'
+                                    },
+                                    name: 'light'
+                                },
+                                api: {
+                                    beforeShow: function()
+                                    {
+                                        // Fade in the modal "blanket" using the defined show speed
+                                        $('#qtip-blanket').fadeIn(this.options.show.effect.length);
+                                    },
+                                    beforeHide: function()
+                                    {
+                                        // Fade out the modal "blanket" using the defined hide speed
+                                        $('#qtip-blanket').fadeOut(this.options.hide.effect.length);
+                                    }
                                 }
-                            }
-                        });
+                            });
 
 
-                });
+                    });
 
-                // Create the modal backdrop on document load so all modal tooltips can use it
-                $('<div id="qtip-blanket">')
-                    .css({
-                        position: 'absolute',
-                        top: $(document).scrollTop(), // Use document scrollTop so it's on-screen even if the window is scrolled
-                        left: 0,
-                        height: $(document).height(), // Span the full document height...
-                        width: '100%', // ...and full width
+                    // Create the modal backdrop on document load so all modal tooltips can use it
+                    $('<div id="qtip-blanket">')
+                        .css({
+                            position: 'absolute',
+                            top: $(document).scrollTop(), // Use document scrollTop so it's on-screen even if the window is scrolled
+                            left: 0,
+                            height: $(document).height(), // Span the full document height...
+                            width: '100%', // ...and full width
 
-                        opacity: 0.7, // Make it slightly transparent
-                        backgroundColor: 'black',
-                        zIndex: 5000  // Make sure the zIndex is below 6000 to keep it below tooltips!
-                    })
-                    .appendTo(document.body) // Append to the document body
-                    .hide(); // Hide it initially
-
-                $('img.custom-paint-option-img').each(function()
-                {
-
-                    $(this).qtip(
-                        {
-                            content: {
-                                // Set the text to an image HTML string with the correct src URL to the loading image you want to use
-                                text: '<div style="float:left"><img style="width:400px;height:400px" class="throbber" src="'+$(this).attr('href')+'" alt="'+$(this).attr('alt')+'" /></div>',
-                                //url: $(this).attr('href'), // Use the rel attribute of each element for the url to load
-                                title: {
-                                    text: $(this).attr('alt'), // Give the tooltip a title using each elements text
-                                    button: 'Close' // Show a close link in the title
-                                }
-                            },
-                            position: {
-                                adjust: {
-                                    screen: true // Keep the tooltip on-screen at all times
-                                }
-                            },
-
-                            style: {
-                                tip: true, // Apply a speech bubble tip to the tooltip at the designated tooltip corner
-                                border: {
-                                    width: 0,
-                                    radius: 4
-                                },
-                                name: 'light', // Use the default light style
-                                width: 420 // Set the tooltip width
-
-                            }
+                            opacity: 0.7, // Make it slightly transparent
+                            backgroundColor: 'black',
+                            zIndex: 5000  // Make sure the zIndex is below 6000 to keep it below tooltips!
                         })
-                });
-                /*
-        		}
-        		else{
-        			alert('Please select effect');
-        		}
-                */
+                        .appendTo(document.body) // Append to the document body
+                        .hide(); // Hide it initially
+
+                    $('img.custom-paint-option-img').each(function()
+                    {
+
+                        $(this).qtip(
+                            {
+                                content: {
+                                    // Set the text to an image HTML string with the correct src URL to the loading image you want to use
+                                    text: '<div style="float:left"><img style="width:400px;height:400px" class="throbber" src="'+$(this).attr('href')+'" alt="'+$(this).attr('alt')+'" /></div>',
+                                    //url: $(this).attr('href'), // Use the rel attribute of each element for the url to load
+                                    title: {
+                                        text: $(this).attr('alt'), // Give the tooltip a title using each elements text
+                                        button: 'Close' // Show a close link in the title
+                                    }
+                                },
+                                position: {
+                                    adjust: {
+                                        screen: true // Keep the tooltip on-screen at all times
+                                    }
+                                },
+
+                                style: {
+                                    tip: true, // Apply a speech bubble tip to the tooltip at the designated tooltip corner
+                                    border: {
+                                        width: 0,
+                                        radius: 4
+                                    },
+                                    name: 'light', // Use the default light style
+                                    width: 420 // Set the tooltip width
+
+                                }
+                            })
+                    });
+                    /*
+                            }
+                            else{
+                                    alert('Please select effect');
+                            }
+                    */
         	});
         	
         	$('#add-to-cart').click(function(){
