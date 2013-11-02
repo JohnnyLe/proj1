@@ -41,9 +41,9 @@
             <default_setup>
                 <connection>
                     <host><![CDATA[localhost]]></host>
-                    <username><![CDATA[projefs1_picasso]]></username>
-                    <password><![CDATA[y4hNrw8?bx!]]></password>
-                    <dbname><![CDATA[projefs1_picasso]]></dbname>
+                    <username><![CDATA[lxanh]]></username>
+                    <password><![CDATA[123456]]></password>
+                    <dbname><![CDATA[picasso]]></dbname>
                     <initStatements><![CDATA[SET NAMES utf8]]></initStatements>
                     <model><![CDATA[mysql4]]></model>
                     <type><![CDATA[pdo_mysql]]></type>

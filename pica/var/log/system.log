@@ -3507,3 +3507,51 @@
 2013-10-16T07:06:40+00:00 ERR (3): Notice: Undefined index: type  in /home/projefs1/public_html/app/code/local/SM/Picasso/Block/Override/Catalog/Product/View/Options.php on line 78
 2013-10-16T07:06:40+00:00 ERR (3): Notice: Undefined index: type  in /home/projefs1/public_html/app/code/local/SM/Picasso/Block/Override/Catalog/Product/View/Options.php on line 57
 2013-10-16T07:06:40+00:00 ERR (3): Notice: Undefined index: type  in /home/projefs1/public_html/app/code/local/SM/Picasso/Block/Override/Catalog/Product/View/Options.php on line 78
+2013-11-01T10:26:26+00:00 ERR (3): Notice: Undefined offset: 0  in C:\wamp\www\proj1\pica\app\design\frontend\picasso\default\template\sm\picasso\catalog\product\view.phtml on line 37
+2013-11-01T10:26:27+00:00 ERR (3): Notice: Undefined offset: 1  in C:\wamp\www\proj1\pica\app\code\local\SM\Picasso\Block\ImageEditor.php on line 14
+2013-11-01T10:26:27+00:00 ERR (3): Notice: Undefined offset: 2  in C:\wamp\www\proj1\pica\app\code\local\SM\Picasso\Block\ImageEditor.php on line 14
+2013-11-01T10:26:27+00:00 ERR (3): Notice: Undefined offset: 3  in C:\wamp\www\proj1\pica\app\code\local\SM\Picasso\Block\ImageEditor.php on line 14
+2013-11-01T10:26:27+00:00 ERR (3): Notice: Undefined index: type  in C:\wamp\www\proj1\pica\app\code\local\SM\Picasso\Block\Override\Catalog\Product\View\Options.php on line 57
+2013-11-01T10:26:27+00:00 ERR (3): Notice: Undefined index: type  in C:\wamp\www\proj1\pica\app\code\local\SM\Picasso\Block\Override\Catalog\Product\View\Options.php on line 78
+2013-11-01T10:26:27+00:00 ERR (3): Notice: Undefined index: type  in C:\wamp\www\proj1\pica\app\code\local\SM\Picasso\Block\Override\Catalog\Product\View\Options.php on line 57
+2013-11-01T10:26:27+00:00 ERR (3): Notice: Undefined index: type  in C:\wamp\www\proj1\pica\app\code\local\SM\Picasso\Block\Override\Catalog\Product\View\Options.php on line 78
+2013-11-01T10:26:27+00:00 ERR (3): Notice: Undefined index: type  in C:\wamp\www\proj1\pica\app\code\local\SM\Picasso\Block\Override\Catalog\Product\View\Options.php on line 57
+2013-11-01T10:26:27+00:00 ERR (3): Notice: Undefined index: type  in C:\wamp\www\proj1\pica\app\code\local\SM\Picasso\Block\Override\Catalog\Product\View\Options.php on line 78
+2013-11-01T10:26:27+00:00 ERR (3): Notice: Undefined index: type  in C:\wamp\www\proj1\pica\app\code\local\SM\Picasso\Block\Override\Catalog\Product\View\Options.php on line 57
+2013-11-01T10:26:27+00:00 ERR (3): Notice: Undefined index: type  in C:\wamp\www\proj1\pica\app\code\local\SM\Picasso\Block\Override\Catalog\Product\View\Options.php on line 78
+2013-11-01T10:26:27+00:00 ERR (3): Notice: Undefined index: type  in C:\wamp\www\proj1\pica\app\code\local\SM\Picasso\Block\Override\Catalog\Product\View\Options.php on line 57
+2013-11-01T10:26:27+00:00 ERR (3): Notice: Undefined index: type  in C:\wamp\www\proj1\pica\app\code\local\SM\Picasso\Block\Override\Catalog\Product\View\Options.php on line 78
+2013-11-01T10:26:27+00:00 ERR (3): Notice: Undefined index: type  in C:\wamp\www\proj1\pica\app\code\local\SM\Picasso\Block\Override\Catalog\Product\View\Options.php on line 57
+2013-11-01T10:26:27+00:00 ERR (3): Notice: Undefined index: type  in C:\wamp\www\proj1\pica\app\code\local\SM\Picasso\Block\Override\Catalog\Product\View\Options.php on line 78
+2013-11-01T10:26:27+00:00 ERR (3): Notice: Undefined index: type  in C:\wamp\www\proj1\pica\app\code\local\SM\Picasso\Block\Override\Catalog\Product\View\Options.php on line 57
+2013-11-01T10:26:27+00:00 ERR (3): Notice: Undefined index: type  in C:\wamp\www\proj1\pica\app\code\local\SM\Picasso\Block\Override\Catalog\Product\View\Options.php on line 78
+2013-11-01T10:35:39+00:00 ERR (3): Notice: Use of undefined constant CURLOPT_TIMEOUT - assumed 'CURLOPT_TIMEOUT'  in C:\wamp\www\proj1\pica\app\code\core\Mage\AdminNotification\Model\Feed.php on line 159
+2013-11-01T10:35:39+00:00 ERR (3): Notice: Use of undefined constant CURLOPT_MAXREDIRS - assumed 'CURLOPT_MAXREDIRS'  in C:\wamp\www\proj1\pica\app\code\core\Mage\AdminNotification\Model\Feed.php on line 159
+2013-11-01T10:35:39+00:00 ERR (3): Notice: Use of undefined constant CURLOPT_PROXY - assumed 'CURLOPT_PROXY'  in C:\wamp\www\proj1\pica\app\code\core\Mage\AdminNotification\Model\Feed.php on line 159
+2013-11-01T10:35:39+00:00 ERR (3): Notice: Use of undefined constant CURLOPT_SSLCERT - assumed 'CURLOPT_SSLCERT'  in C:\wamp\www\proj1\pica\app\code\core\Mage\AdminNotification\Model\Feed.php on line 159
+2013-11-01T10:35:39+00:00 ERR (3): Notice: Use of undefined constant CURLOPT_USERPWD - assumed 'CURLOPT_USERPWD'  in C:\wamp\www\proj1\pica\app\code\core\Mage\AdminNotification\Model\Feed.php on line 159
+2013-11-01T10:35:58+00:00 ERR (3): Notice: Use of undefined constant CURLOPT_TIMEOUT - assumed 'CURLOPT_TIMEOUT'  in C:\wamp\www\proj1\pica\app\code\core\Mage\AdminNotification\Model\Feed.php on line 159
+2013-11-01T10:35:58+00:00 ERR (3): Notice: Use of undefined constant CURLOPT_MAXREDIRS - assumed 'CURLOPT_MAXREDIRS'  in C:\wamp\www\proj1\pica\app\code\core\Mage\AdminNotification\Model\Feed.php on line 159
+2013-11-01T10:35:58+00:00 ERR (3): Notice: Use of undefined constant CURLOPT_PROXY - assumed 'CURLOPT_PROXY'  in C:\wamp\www\proj1\pica\app\code\core\Mage\AdminNotification\Model\Feed.php on line 159
+2013-11-01T10:35:58+00:00 ERR (3): Notice: Use of undefined constant CURLOPT_SSLCERT - assumed 'CURLOPT_SSLCERT'  in C:\wamp\www\proj1\pica\app\code\core\Mage\AdminNotification\Model\Feed.php on line 159
+2013-11-01T10:35:58+00:00 ERR (3): Notice: Use of undefined constant CURLOPT_USERPWD - assumed 'CURLOPT_USERPWD'  in C:\wamp\www\proj1\pica\app\code\core\Mage\AdminNotification\Model\Feed.php on line 159
+2013-11-01T10:36:03+00:00 ERR (3): Notice: Use of undefined constant CURLOPT_TIMEOUT - assumed 'CURLOPT_TIMEOUT'  in C:\wamp\www\proj1\pica\app\code\core\Mage\AdminNotification\Model\Feed.php on line 159
+2013-11-01T10:36:03+00:00 ERR (3): Notice: Use of undefined constant CURLOPT_MAXREDIRS - assumed 'CURLOPT_MAXREDIRS'  in C:\wamp\www\proj1\pica\app\code\core\Mage\AdminNotification\Model\Feed.php on line 159
+2013-11-01T10:36:03+00:00 ERR (3): Notice: Use of undefined constant CURLOPT_PROXY - assumed 'CURLOPT_PROXY'  in C:\wamp\www\proj1\pica\app\code\core\Mage\AdminNotification\Model\Feed.php on line 159
+2013-11-01T10:36:03+00:00 ERR (3): Notice: Use of undefined constant CURLOPT_SSLCERT - assumed 'CURLOPT_SSLCERT'  in C:\wamp\www\proj1\pica\app\code\core\Mage\AdminNotification\Model\Feed.php on line 159
+2013-11-01T10:36:03+00:00 ERR (3): Notice: Use of undefined constant CURLOPT_USERPWD - assumed 'CURLOPT_USERPWD'  in C:\wamp\www\proj1\pica\app\code\core\Mage\AdminNotification\Model\Feed.php on line 159
+2013-11-01T10:36:09+00:00 ERR (3): Notice: Use of undefined constant CURLOPT_TIMEOUT - assumed 'CURLOPT_TIMEOUT'  in C:\wamp\www\proj1\pica\app\code\core\Mage\AdminNotification\Model\Feed.php on line 159
+2013-11-01T10:36:09+00:00 ERR (3): Notice: Use of undefined constant CURLOPT_MAXREDIRS - assumed 'CURLOPT_MAXREDIRS'  in C:\wamp\www\proj1\pica\app\code\core\Mage\AdminNotification\Model\Feed.php on line 159
+2013-11-01T10:36:09+00:00 ERR (3): Notice: Use of undefined constant CURLOPT_PROXY - assumed 'CURLOPT_PROXY'  in C:\wamp\www\proj1\pica\app\code\core\Mage\AdminNotification\Model\Feed.php on line 159
+2013-11-01T10:36:09+00:00 ERR (3): Notice: Use of undefined constant CURLOPT_SSLCERT - assumed 'CURLOPT_SSLCERT'  in C:\wamp\www\proj1\pica\app\code\core\Mage\AdminNotification\Model\Feed.php on line 159
+2013-11-01T10:36:09+00:00 ERR (3): Notice: Use of undefined constant CURLOPT_USERPWD - assumed 'CURLOPT_USERPWD'  in C:\wamp\www\proj1\pica\app\code\core\Mage\AdminNotification\Model\Feed.php on line 159
+2013-11-01T10:38:08+00:00 ERR (3): Notice: Use of undefined constant CURLOPT_TIMEOUT - assumed 'CURLOPT_TIMEOUT'  in C:\wamp\www\proj1\pica\app\code\core\Mage\AdminNotification\Model\Feed.php on line 159
+2013-11-01T10:38:08+00:00 ERR (3): Notice: Use of undefined constant CURLOPT_MAXREDIRS - assumed 'CURLOPT_MAXREDIRS'  in C:\wamp\www\proj1\pica\app\code\core\Mage\AdminNotification\Model\Feed.php on line 159
+2013-11-01T10:38:08+00:00 ERR (3): Notice: Use of undefined constant CURLOPT_PROXY - assumed 'CURLOPT_PROXY'  in C:\wamp\www\proj1\pica\app\code\core\Mage\AdminNotification\Model\Feed.php on line 159
+2013-11-01T10:38:08+00:00 ERR (3): Notice: Use of undefined constant CURLOPT_SSLCERT - assumed 'CURLOPT_SSLCERT'  in C:\wamp\www\proj1\pica\app\code\core\Mage\AdminNotification\Model\Feed.php on line 159
+2013-11-01T10:38:08+00:00 ERR (3): Notice: Use of undefined constant CURLOPT_USERPWD - assumed 'CURLOPT_USERPWD'  in C:\wamp\www\proj1\pica\app\code\core\Mage\AdminNotification\Model\Feed.php on line 159
+2013-11-01T10:38:12+00:00 ERR (3): Notice: Use of undefined constant CURLOPT_TIMEOUT - assumed 'CURLOPT_TIMEOUT'  in C:\wamp\www\proj1\pica\app\code\core\Mage\AdminNotification\Model\Feed.php on line 159
+2013-11-01T10:38:12+00:00 ERR (3): Notice: Use of undefined constant CURLOPT_MAXREDIRS - assumed 'CURLOPT_MAXREDIRS'  in C:\wamp\www\proj1\pica\app\code\core\Mage\AdminNotification\Model\Feed.php on line 159
+2013-11-01T10:38:12+00:00 ERR (3): Notice: Use of undefined constant CURLOPT_PROXY - assumed 'CURLOPT_PROXY'  in C:\wamp\www\proj1\pica\app\code\core\Mage\AdminNotification\Model\Feed.php on line 159
+2013-11-01T10:38:12+00:00 ERR (3): Notice: Use of undefined constant CURLOPT_SSLCERT - assumed 'CURLOPT_SSLCERT'  in C:\wamp\www\proj1\pica\app\code\core\Mage\AdminNotification\Model\Feed.php on line 159
+2013-11-01T10:38:12+00:00 ERR (3): Notice: Use of undefined constant CURLOPT_USERPWD - assumed 'CURLOPT_USERPWD'  in C:\wamp\www\proj1\pica\app\code\core\Mage\AdminNotification\Model\Feed.php on line 159
