@@ -1,0 +1,128 @@
+html {
+	font: .7em/1.5em "Lucida Grande", "Lucida Sans Unicode", helvetica, verdana, arial, sans-serif;
+	background: #e9e9e9;
+}
+
+#header h1{
+	text-align: center;
+	font-size: 24px;
+	font-weight: normal;
+	margin: 30px 0 3px 0;
+	margin: 0 auto;
+}
+#header p{
+	text-align: center;
+	font-size: 14px;
+	font-weight: normal;
+	margin: 30px 0 3px 0;
+	margin: 0 auto;
+}
+
+#main {
+	padding: 30px 0 30px 0;
+}
+
+
+.closeButton {
+	position: absolute;
+	top: -13px;
+	z-index: 1001;
+	background: url(../images/assets/close.png) no-repeat;
+	width: 25px;
+	height: 25px;
+}
+
+#arrowButton{    
+    cursor: pointer;   
+	position: fixed;  
+	width: 100%;
+	z-index: 1003;
+}            
+#arrowButton .prevArrow{
+    background: url(../images/assets/prev.png) no-repeat; 
+    width: 40px;
+    height: 80px;      
+	position: absolute;
+	left: 20px;
+} 
+#arrowButton .nextArrow{                 
+    background: url(../images/assets/next.png) no-repeat;
+    width: 40px;
+    height: 80px;  
+	position: absolute; 
+	right: 20px;
+}           
+
+#tiles {
+	list-style-type: none;
+	position: relative;
+	margin: 0;
+}
+
+#tiles li {
+	width: 200px;
+	display: none;
+	z-index: 1000;
+}
+
+
+
+#tiles li img {
+	display: block;
+}
+
+div.front{
+	position: relative;
+	z-index: 1001;
+	background: #FFF;
+	margin: 0; 
+}
+
+div.back{
+	position: absolute;
+	top: 0;
+	left: 0;
+	margin: 0; 
+	background: #FFF;	
+}
+div.back h4{
+	margin: 7px 7px 0 7px;
+}
+div.front p, div.back p, div.info p{
+	color: #666;
+	font-size: 12px;
+	margin: 7px 7px 0 7px;
+	padding-bottom: 4px;
+}
+
+
+div.info{
+	background: #FFF;
+}
+div.info h4{
+	margin: 0px 7px 0 7px;
+	padding-top: 10px;
+}
+
+.largeContainer{
+	background: url(../images/assets/loading.gif) center center no-repeat;	
+	top: 0;
+	left: 0;
+	position: fixed;
+	opacity: .6;
+	background-color: black;
+	filter: Alpha(Opacity=60);
+	width: 100%;
+	height: 100%;
+	z-index: 1002;
+
+}
+.largeContainer iframe{
+	background: #FFF;
+	position: relative;
+	z-index: 1000;
+}
+.largeContainer img{
+	position: relative;
+	z-index: 1000;	
+}
