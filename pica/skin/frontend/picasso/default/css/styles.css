@@ -120,7 +120,7 @@ ul,ol         { list-style:none; }
 .page-popup .product-name { padding-top:8px; }
 .page-popup .btn-cart { height:32px; margin:0 0 8px 0; }
 .page-popup .price-box { margin:8px 0 8px 0; }
-.main-container { background:url(../images/main_line.gif) repeat-x; padding:50px 0; }
+.main-container { background:url(../images/main_line.jpg) repeat 50% 0%; padding:50px 0; }
 .cms-index-index .main-container { padding:0 0 50px 0; }
 .cms-index-index .header { height:710px; }
 .main { width:940px; margin:0 auto; }
