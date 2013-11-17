@@ -387,7 +387,7 @@ App.ImageEditor = function(settings) {
                     $('#effect-container').hide();
                     //show customer painting option
                     $('#custom-painting').show();
-                    $('#sub-group-option-1, #sub-group-option-3').hide();
+                    $('#sub-group-option-1, #sub-group-option-3,#sub-group-option-13').hide();
                     $('h3.group-option-tooltip').each(function(){
                         $(this).qtip(
                             {
