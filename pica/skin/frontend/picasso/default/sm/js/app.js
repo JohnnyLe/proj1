@@ -383,6 +383,20 @@ App.ImageEditor = function(settings) {
                     $('#upload_list').val($.toJSON(_uploadList));
                 }
         	});
+                
+                //REQID 15
+                $('#options_14_2,#options_14_3').click(function(){                   
+                     $('#group_option_container_9 .ui-widget-header').html('5. Edge Options');
+                     $('#group_option_container_10 .ui-widget-header').html('6. Paint Texture Options');
+                     $('#group_option_container_11 .ui-widget-header').html('7. Comments');
+                }); 
+                
+                $('#options_14_4,#options_14_5,#options_14_6,#options_14_7,#options_14_8,#options_14_9').click(function(){                   
+                     //$('#group_option_container_9 .ui-widget-header').html('Edge Options');
+                     $('#group_option_container_10 .ui-widget-header').html('5. Paint Texture Options');
+                     $('#group_option_container_11 .ui-widget-header').html('6. Comments');
+                });
+                //End REQID 15
         	$('#save-effect').click(function(){
                     $('#effect-container').hide();
                     //show customer painting option
