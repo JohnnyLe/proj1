@@ -660,13 +660,24 @@ App.ImageEditor = function(settings) {
 
             // Use the each() method to gain access to each elements attributes
 
-        	$('.effect-accordion-header').click(function(){
+            $('.effect-accordion-header').live('click', function(){
                 $(this).next().slideToggle();
+                //Destroy view 
+                //Init mCustomScrollbar
+                $('.image-editor-col-left').mCustomScrollbar('destroy');
+                
+                //Re-init
+                //Init mCustomScrollbar
+                setTimeout(function (){
+                    $('.image-editor-col-left').mCustomScrollbar();
+                }, 500); // Wait for update content height
+                
             });
         	
             $(document).bind('uploader-oncomplete', this,_handler.onUploaderComplete);
             
-            
+            //Init mCustomScrollbar
+            $('.image-editor-col-left').mCustomScrollbar();
         }
       }, $.jsa.WidgetAbstract, settings);
 };
