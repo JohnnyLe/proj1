@@ -61,7 +61,9 @@ Default layout, loads most of the pages
                 <action method="addItem"><type>skin_js</type><name>js/ie6.js</name><params/><if>lt IE 7</if></action>
 				<action method="addItem"><type>skin_js</type><name>js/jquery-1.7.2.min.js</name><params/></action>
 				<action method="addItem"><type>skin_js</type><name>js/jquery.ad-gallery.min.js</name><params/></action>
+                                <action method="addItem"><type>skin_js</type><name>js/jquery.mCustomScrollbar.js</name><params/></action>
                 <action method="addItem"><type>skin_js</type><name>js/jquery.cycle.all.js</name><params/></action>
+                
             </block>
 
             <block type="core/text_list" name="after_body_start" as="after_body_start" translate="label">

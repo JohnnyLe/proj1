@@ -383,11 +383,25 @@ App.ImageEditor = function(settings) {
                     $('#upload_list').val($.toJSON(_uploadList));
                 }
         	});
+                
+                //REQID 15
+                $('#options_14_2,#options_14_3').click(function(){                   
+                     $('#group_option_container_9 .ui-widget-header').html('5. Edge Options');
+                     $('#group_option_container_10 .ui-widget-header').html('6. Paint Texture Options');
+                     $('#group_option_container_11 .ui-widget-header').html('7. Comments');
+                }); 
+                
+                $('#options_14_4,#options_14_5,#options_14_6,#options_14_7,#options_14_8,#options_14_9').click(function(){                   
+                     //$('#group_option_container_9 .ui-widget-header').html('Edge Options');
+                     $('#group_option_container_10 .ui-widget-header').html('5. Paint Texture Options');
+                     $('#group_option_container_11 .ui-widget-header').html('6. Comments');
+                });
+                //End REQID 15
         	$('#save-effect').click(function(){
                     $('#effect-container').hide();
                     //show customer painting option
                     $('#custom-painting').show();
-                    $('#sub-group-option-1, #sub-group-option-3').hide();
+                    $('#sub-group-option-1, #sub-group-option-3,#sub-group-option-13').hide();
                     $('h3.group-option-tooltip').each(function(){
                         $(this).qtip(
                             {
@@ -660,13 +674,24 @@ App.ImageEditor = function(settings) {
 
             // Use the each() method to gain access to each elements attributes
 
-        	$('.effect-accordion-header').click(function(){
+            $('.effect-accordion-header').live('click', function(){
                 $(this).next().slideToggle();
+                //Destroy view 
+                //Init mCustomScrollbar
+                $('.image-editor-col-left').mCustomScrollbar('destroy');
+                
+                //Re-init
+                //Init mCustomScrollbar
+                setTimeout(function (){
+                    $('.image-editor-col-left').mCustomScrollbar();
+                }, 500); // Wait for update content height
+                
             });
         	
             $(document).bind('uploader-oncomplete', this,_handler.onUploaderComplete);
             
-            
+            //Init mCustomScrollbar
+            $('.image-editor-col-left').mCustomScrollbar();
         }
       }, $.jsa.WidgetAbstract, settings);
 };
