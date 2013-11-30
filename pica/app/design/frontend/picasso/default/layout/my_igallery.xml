@@ -31,10 +31,13 @@
             <block type="igallery/page_html_head" name="my_igallery_head" as="my_igallery_head"/>
         </reference>
         <reference name="head">
-            <action method="addCss"><stylesheet>my_igallery/css/jquery.galleryview-3.0-dev.css</stylesheet></action>
-            <action method="addItem"><type>skin_js</type><name>my_igallery/js/jquery.easing.1.3.js</name><params/></action>
-            <action method="addItem"><type>skin_js</type><name>my_igallery/js/jquery.galleryview-3.0-dev.js</name><params/></action>
-            <action method="addItem"><type>skin_js</type><name>my_igallery/js/jquery.timers-1.2.js</name><params/></action>     
+            <action method="addCss"><stylesheet>my_igallery/css/reset.css</stylesheet></action>
+			<action method="addCss"><stylesheet>my_igallery/css/style.css</stylesheet></action>
+			<action method="addCss"><stylesheet>my_igallery/css/animation.css</stylesheet></action>
+            <action method="addItem"><type>skin_js</type><name>my_igallery/js/jquery-1.7.2.min.js</name><params/></action>
+            <action method="addItem"><type>skin_js</type><name>my_igallery/js/jquery.wookmark.min.js</name><params/></action>
+            <action method="addItem"><type>skin_js</type><name>my_igallery/js/jquery.pinterestgallery.min.js</name><params/></action>
+			<action method="addItem"><type>skin_js</type><name>my_igallery/js/modernizr.custom.js</name><params/></action>
         </reference>
         <reference name="left">
             <block type="igallery/menu" name="igallery_menu" template="my_igallery/menu.phtml" before="-"/>
@@ -51,10 +54,13 @@
             <block type="igallery/page_html_head" name="my_igallery_head" as="my_igallery_head"/>
         </reference>
         <reference name="head">
-            <action method="addCss"><stylesheet>my_igallery/css/jquery.galleryview-3.0-dev.css</stylesheet></action>
-            <action method="addItem"><type>skin_js</type><name>my_igallery/js/jquery.easing.1.3.js</name><params/></action>
-            <action method="addItem"><type>skin_js</type><name>my_igallery/js/jquery.galleryview-3.0-dev.js</name><params/></action>
-            <action method="addItem"><type>skin_js</type><name>my_igallery/js/jquery.timers-1.2.js</name><params/></action>
+            <action method="addCss"><stylesheet>my_igallery/css/reset.css</stylesheet></action>
+			<action method="addCss"><stylesheet>my_igallery/css/style.css</stylesheet></action>
+			<action method="addCss"><stylesheet>my_igallery/css/animation.css</stylesheet></action>
+            <action method="addItem"><type>skin_js</type><name>my_igallery/js/jquery-1.7.2.min.js</name><params/></action>
+            <action method="addItem"><type>skin_js</type><name>my_igallery/js/jquery.wookmark.min.js</name><params/></action>
+            <action method="addItem"><type>skin_js</type><name>my_igallery/js/jquery.pinterestgallery.min.js</name><params/></action>
+			<action method="addItem"><type>skin_js</type><name>my_igallery/js/modernizr.custom.js</name><params/></action>
         </reference>
         <reference name="left">
             <block type="igallery/menu" name="igallery_menu" template="my_igallery/menu.phtml" before="-"/>
