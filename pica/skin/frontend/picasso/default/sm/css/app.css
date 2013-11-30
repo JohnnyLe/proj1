@@ -113,6 +113,7 @@
     font-family: 'Oswald';
     overflow-y: hidden;
     height: 715px;
+	background-image: url(../images/halloween_bgd.jpg);
 }
 .image-editor-col-main{
 	width:75%;
@@ -149,7 +150,7 @@
 
 #apply-crop-button{margin:10px;float:right}
 #crop-button{margin:10px;float:left}
-.brightness-contrast{margin-bottom:20px;padding:10px}
+.brightness-contrast{padding:10px 10px 40px}
 .qq-upload-button {cursor: pointer;cursor: hand;}
 
 
@@ -158,7 +159,7 @@
 /* vertical scrollbar */
 .mCSB_container{
 	width:auto;
-	margin-right:30px;
+	margin-right:16px;
 	overflow:hidden;
 }
 .mCSB_container.mCS_no_scrollbar{
