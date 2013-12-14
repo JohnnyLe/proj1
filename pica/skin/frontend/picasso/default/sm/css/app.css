@@ -113,13 +113,13 @@
     font-family: 'Oswald';
     overflow-y: hidden;
     height: 715px;
-	background-image: url(../images/halloween_bgd.jpg);
+/*	background-image: url(../images/halloween_bgd.jpg);*/
 }
 .image-editor-col-main{
 	width:75%;
 	float:left;
 	overflow: hidden;
-	background-image:url(../images/halloween_bgd.jpg)
+/*	background-image:url(../images/halloween_bgd.jpg)*/
 }
 #toolbar {
 	padding: 10px 10px;
