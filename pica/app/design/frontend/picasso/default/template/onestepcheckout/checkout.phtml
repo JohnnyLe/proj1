@@ -17,7 +17,15 @@ $helper = Mage::helper('onestepcheckout/checkout');
     <p><a href="<?php echo $this->getUrl(''); ?>"><?php echo $this->__('Back to homepage'); ?></a></p>
     <?php endif; ?>
 <?php else: ?>
-
+<!-- Add more breadcrumb menu -->
+<div class="breadcrumb-wrapper">
+    <ul class="breadcrumb">
+        <li><a>Choose photo filter</a></li>
+        <li><a>Customize</a></li>
+        <li><a class='active check-out'>Checkout</a></li>
+    </ul>    
+</div>
+<!-- End breadcrumb menu -->
 <form id="onestepcheckout-form" method="post" action="<?php echo $this->getUrl('onestepcheckout', array('_secure'=>true)); ?>">
 <fieldset class="group-select" style="margin: 0;">
 
