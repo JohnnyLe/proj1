@@ -396,8 +396,12 @@ App.ImageEditor = function(settings) {
                      $('#group_option_container_10 .ui-widget-header').html('5. Paint Texture Options');
                      $('#group_option_container_11 .ui-widget-header').html('6. Comments');
                 });
+                
                 //End REQID 15
         	$('#save-effect').click(function(){
+                    // Update breadcrumb menu
+                    $('#custom-painting .breadcrumb li:eq(0)').find('a').removeClass('active');
+                    $('#custom-painting .breadcrumb li:eq(1)').find('a').addClass('active');
                     $('#effect-container').hide();
                     //show customer painting option
                     $('#custom-painting').show();
@@ -515,8 +519,11 @@ App.ImageEditor = function(settings) {
         	
         	$('#back-edit-image').click(function(){
         		//$.modal.close();
-                $('#custom-painting').hide();
-                $('#effect-container').show();
+                        // Update breadcrumb menu
+                        $('#effect-container .breadcrumb li:eq(0)').find('a').addClass('active');
+                        $('#effect-container .breadcrumb li:eq(1)').find('a').removeClass('active');
+                        $('#custom-painting').hide();
+                        $('#effect-container').show();
         	});
 
         	$('#share-buttons').jsShare({ 

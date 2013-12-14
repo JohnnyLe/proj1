@@ -83,9 +83,18 @@
         <div id="image-editor-image-list"></div>
     </div>
     <div class="image-editor-col-main">
+        <!-- Add more breadcrumb menu -->
+        <div class="breadcrumb-wrapper">
+            <ul class="breadcrumb">
+                <li><a class="active">Choose photo filter</a></li>
+                <li><a>Customize</a></li>
+                <li><a class='check-out'>Checkout</a></li>
+            </ul>    
+        </div>
+        <!-- End breadcrumb menu -->
         <div class="picasso-toolbar">
-            <div class="social-media-share" id="save-effect" style="color:black;float:left;text-align: center;font-size: 20pt">ORDER</div>
-            <div class="social-media-share" id="save-image" style="width:100px;color:black;float:left;text-align: center;font-size: 20pt;margin-left:20px">SAVE</div>
+            <div class="social-media-share" id="save-effect">ORDER</div>
+            <div class="social-media-share" id="save-image">SAVE</div>
             <div id="share-buttons" style="float:left;margin-left:20px"></div>
 
         </div>
@@ -104,6 +113,17 @@
 </div>
 
 <div class="ui-widget-content" id="custom-painting" style="width:auto;display:none">
+    
+    <!-- Add more breadcrumb menu -->
+        <div class="breadcrumb-wrapper">
+            <ul class="breadcrumb">
+                <li><a class="active">Choose photo filter</a></li>
+                <li><a>Customize</a></li>
+                <li><a class='check-out'>Checkout</a></li>
+            </ul>    
+        </div>
+    <!-- End breadcrumb menu -->
+    
     <h3 class="ui-widget-header"><?php echo $this->__("Custom Painting")?></h3>
     <div id="image-editor-custom-painting">
         <?php echo $this->getChildHtml('product_options_wrapper')?>
