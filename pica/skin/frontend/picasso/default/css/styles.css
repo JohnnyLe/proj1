@@ -580,9 +580,9 @@ tr.summary-details-excluded { font-style:italic; }
 /* Header ================================================================================ */
 .header-container {/* background:url(../images/header.jpg) repeat-x 50% 0%; */}
 .header { width:940px; margin:0 auto;position:relative;}
-.header .logo { position:absolute; top:-78px;left: 250px; text-decoration:none !important; }
-.header .logo a img{ height:335px !important; }
-.header .logo img{ height:335px !important; }
+.header .logo { position:absolute; top:-13px;left: 250px; text-decoration:none !important; }
+.header .logo a img{ height:204px !important; }
+.header .logo img{ height:204px !important; }
 .header .logo strong { position:absolute; top:-999em; left:-999em; width:0; height:0; font-size:0; line-height:0; text-indent:-999em; overflow:hidden; }
 .header .welcome-msg { font-weight:normal;font-family: 'alte_haas_groteskbold'; position:absolute; margin:25px 0 0 0; color:#fff; }
 .header .welcome-msg a { color:#fff; }
