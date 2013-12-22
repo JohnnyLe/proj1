@@ -56,10 +56,13 @@
 .ui-widget { font-family: Verdana, Arial, sans-serif; font-size: 1.1em; }
 .ui-widget .ui-widget { font-size: 1em; }
 .ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button { font-family: Verdana, Arial, sans-serif; font-size: 1em; }
-.ui-widget-content { border-right: 1px solid #444444; border-left: 1px solid #444444; border-bottom: 1px solid #444444; /*background: #000000 url(images/ui-bg_loop_25_000000_21x21.png) 50% 50% repeat;*/ color: #ffffff; }
+.ui-widget-content { border-right: 1px solid #444444; border-left: 1px solid #444444;border-bottom: 1px solid #444444; /*background: #000000 url(images/ui-bg_loop_25_000000_21x21.png) 50% 50% repeat;*/ color: #ffffff; }
 .ui-widget-content a { color: #ffffff; }
 .ui-widget-header { border: 1px solid #4B4A4A;/* background: #444444 url(images/ui-bg_highlight-soft_44_444444_1x100.png) 50% 50% repeat-x;*/ color: #ffffff;/*  font-weight: bold; */ }
 .ui-widget-header a { color: #ffffff; }
+/*john custom */
+#group_option_container_1 .ui-widget-content{border-bottom: 0px!important}
+#group_option_container_13 .ui-widget-content{border-bottom: 0px!important}
 
 /* Interaction states
 ----------------------------------*/
