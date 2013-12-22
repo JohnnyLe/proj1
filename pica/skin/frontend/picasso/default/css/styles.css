@@ -340,36 +340,40 @@ p.required { font-size:12px; text-align:right; color:#fff; }
 .breadcrumbs strong { font-weight:normal; }
 
 .breadcrumb { 
-	list-style: none; 
-	overflow: hidden; 
-	font-size: 14px;
-        font-weight: bold;
+    list-style: none; 
+    overflow: hidden; 
+    font-size: 14px;
+    font-weight: bold;
 }
 .breadcrumb li { 
-	float: left; 
+    width: 33%;
+    float: left; 
+    text-align: center;
 }
-.breadcrumb li a {
-	text-transform: uppercase;
-	color: #737373;
-	text-decoration: none; 
-	padding: 10px 50px 10px 70px;
-	background: brown;                   /* fallback color */
-	background: #dedede; 
-	position: relative; 
-	display: block;
-	float: left;
-        min-width: 100px;
+
+.breadcrumb-wrapper {
+    padding: 0 0 20px;
 }
-.breadcrumb li a.active {
+.breadcrumb li {
+    text-transform: uppercase;
+    color: #737373;
+    text-decoration: none; 
+    padding: 10px 0;
+    background: #dedede; 
+    position: relative; 
+    display: block;
+    float: left;
+}
+.breadcrumb li.active {
     color: white;
-    background-color: #505050;
+    background-color: orange;
 }
 
-.breadcrumb li a.active:after {
-    border-left-color: #505050;
+.breadcrumb li.active:after {
+    border-left-color: orange;
 }
 
-.breadcrumb li a:after { 
+.breadcrumb li:after { 
 	content: " "; 
 	display: block; 
 	width: 0; 
@@ -383,7 +387,7 @@ p.required { font-size:12px; text-align:right; color:#fff; }
 	left: 100%;
 	z-index: 2; 
 }
-.breadcrumb li a:before { 
+.breadcrumb li:before { 
 	content: " "; 
 	display: block; 
 	width: 0; 
@@ -398,13 +402,11 @@ p.required { font-size:12px; text-align:right; color:#fff; }
 	left: 100%;
 	z-index: 1; 
 }
-.breadcrumb li:first-child a {
-	padding-left: 30px;
-}
-.breadcrumb li a.check-out:after {
+
+.breadcrumb li.check-out:after {
     border: 0;
 }
-.breadcrumb li a.check-out:before {
+.breadcrumb li.check-out:before {
     border: 0;
 }
 /*.breadcrumb li:nth-child(2) a       { background:        #dedede; }
