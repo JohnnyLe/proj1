@@ -2,11 +2,11 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/1">
-        <file>file:/C:/Users/user/Dropbox/Web%20Picasso/picasso/index.php</file>
-        <file>file:/C:/Users/user/Dropbox/Web%20Picasso/picasso/app/etc/local.xml</file>
-        <file>file:/C:/Users/user/Dropbox/Web%20Picasso/picasso/app/Mage.php</file>
-        <file>file:/C:/Users/user/Dropbox/Web%20Picasso/picasso/lib/Zend/Session/SaveHandler/DbTable.php</file>
-        <file>file:/C:/Users/user/Dropbox/Web%20Picasso/picasso/app/code/core/Mage/Core/Model/Url.php</file>
-        <file>file:/C:/Users/user/Dropbox/Web%20Picasso/picasso/app/code/core/Mage/Adminhtml/Model/System/Config/Backend/Admin/Custom.php</file>
+        <file>file:/C:/wamp/www/proj1/pica/app/design/frontend/picasso/default/template/sm/picasso/image_editor.phtml</file>
+        <file>file:/C:/wamp/www/proj1/pica/skin/frontend/picasso/default/sm/js/app.js</file>
+        <file>file:/C:/wamp/www/proj1/pica/skin/frontend/picasso/default/css/styles.css</file>
+        <file>file:/C:/wamp/www/proj1/pica/skin/frontend/picasso/default/sm/css/dark-hive/jquery-ui-1.8.21.custom.css</file>
+        <file>file:/C:/wamp/www/proj1/pica/app/design/frontend/picasso/default/template/checkout/cart.phtml</file>
+        <file>file:/C:/wamp/www/proj1/pica/app/design/frontend/picasso/default/template/onestepcheckout/checkout.phtml</file>
     </open-files>
 </project-private>

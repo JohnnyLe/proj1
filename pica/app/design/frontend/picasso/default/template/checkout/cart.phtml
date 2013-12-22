@@ -34,9 +34,9 @@
 <!-- Add more breadcrumb menu -->
 <div class="breadcrumb-wrapper">
     <ul class="breadcrumb">
-        <li><a>Choose photo filter</a></li>
-        <li><a>Customize</a></li>
-        <li><a class='active check-out'>Checkout</a></li>
+        <li>Choose photo filter</li>
+        <li>Customize</li>
+        <li class='active check-out'>Checkout</li>
     </ul>    
 </div>
 <!-- End breadcrumb menu -->
@@ -44,15 +44,15 @@
     <div class="page-title title-buttons">
         <h1><?php echo $this->__('Shopping Cart') ?></h1>        
     </div>
-				<?php if(!$this->hasError()): ?>
-				<ul class="checkout-types">
-				<?php foreach ($this->getMethods('top_methods') as $method): ?>
-								<?php if ($methodHtml = $this->getMethodHtml($method)): ?>
-								<li><?php echo $methodHtml; ?></li>
-								<?php endif; ?>
-				<?php endforeach; ?>
-				</ul>
-				<?php endif; ?>
+    <?php if(!$this->hasError()): ?>
+<!--    <ul class="checkout-types">
+        <?php foreach ($this->getMethods('top_methods') as $method): ?>
+                    <?php if ($methodHtml = $this->getMethodHtml($method)): ?>
+                    <li><?php echo $methodHtml; ?></li>
+                    <?php endif; ?>
+        <?php endforeach; ?>
+    </ul>-->
+    <?php endif; ?>
     <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
     <?php echo $this->getChildHtml('form_before') ?>
     <form action="<?php echo $this->getUrl('checkout/cart/updatePost') ?>" method="post">
