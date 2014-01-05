@@ -690,15 +690,27 @@ App.ImageEditor = function(settings) {
                 //Re-init
                 //Init mCustomScrollbar
                 setTimeout(function (){
-                    $('.image-editor-col-left').mCustomScrollbar();
-                }, 500); // Wait for update content height
+                    $('.image-editor-col-left').mCustomScrollbar({
+                        scrollButtons:{
+						enable:true
+					},
+					theme: "light-2"
+
+                    });
+                }, 300); // Wait for update content height
                 
             });
         	
             $(document).bind('uploader-oncomplete', this,_handler.onUploaderComplete);
             
             //Init mCustomScrollbar
-            $('.image-editor-col-left').mCustomScrollbar();
+            $('.image-editor-col-left').mCustomScrollbar({
+                        scrollButtons:{
+						enable:true
+					},
+					theme: "light-2"
+
+			});
         }
       }, $.jsa.WidgetAbstract, settings);
 };
