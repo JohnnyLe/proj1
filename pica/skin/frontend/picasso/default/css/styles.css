@@ -366,11 +366,11 @@ p.required { font-size:12px; text-align:right; color:#fff; }
 }
 .breadcrumb li.active {
     color: white;
-    background-color: orange;
+    background-color: #FF5C00;
 }
 
 .breadcrumb li.active:after {
-    border-left-color: orange;
+    border-left-color: #FF5C00;
 }
 
 .breadcrumb li:after { 
