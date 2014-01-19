@@ -110,6 +110,10 @@ App.ImageEditor = function(settings) {
         		$(this).data('imgLoad','');
         	});
         	$('#upload-image').hide();
+                //Johnny
+                //Show loading image            
+                $('#image-editor-main-image').css('background-image','url(../skin/frontend/picasso/default/sm/images/loading10.gif)');
+                
         	_imageZoom.iviewer('loadImage', responseJson.imageUrl);
             _selectedImagePath = responseJson.imagePath;
               $('#file-path-image-selected').val(_selectedImagePath);
