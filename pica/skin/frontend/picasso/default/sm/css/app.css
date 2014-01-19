@@ -3,7 +3,8 @@
 .qq-upload-button {
     display:block; /* or inline-block */
     width: 105px; padding: 7px 0; text-align:center;    
-    background:black;
+    background:#75BAC0;
+	border-radius: 5px;
     
 }
 .qq-upload-button-hover,.qq-upload-button:hover {background:#003147;}
