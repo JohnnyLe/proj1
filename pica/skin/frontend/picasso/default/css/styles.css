@@ -1069,7 +1069,7 @@ tr.summary-details-excluded { font-style:italic; }
 .product-view .product-shop a.nobr { clear:both; display:block; margin-bottom:5px; }
 
 /* Product Options */
-.product-options { padding:10px; margin:10px 0 0; border:1px solid #343434; }
+.product-options { padding:10px; margin:10px 0 0; /*border:1px solid #343434;*/ box-shadow: inset 0 0 10px #000000; }
 .product-options dt label { font-weight:bold; }
 .product-options dt .qty-holder { float:right; }
 .product-options dt .qty-holder label { vertical-align:middle; }
@@ -1687,7 +1687,7 @@ ul.options-list img {width:100px;height:100px}
 .custom-paint-group li dl{padding:20px}
 .faq-items dt{color:#514742;margin:20px 0px;color:#75BAC0;font-weight: bold;}
 .faq-list ,.faq-list a {color:#75BAC0;font-weight: bold;}
-.custom-paint-group .custom-option-description{border-bottom: 1px solid white;margin-bottom: 10px;padding-bottom: 10px;}
+.custom-paint-group .custom-option-description{margin-bottom: 10px;padding-bottom: 10px;}
 /* =======================================================================================*/
 .picasso-toolbar {text-align:center;}
 #save-effect {margin-left:0 !important}
