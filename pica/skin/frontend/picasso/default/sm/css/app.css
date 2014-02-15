@@ -77,13 +77,13 @@
 
 .iviewer_zoom_status {
     left: 160px;
-    font: 1em/28px Sans;
+    font: 1em/28px Arial;
     color: #000;
     background-color: #fff;
     text-align: center;
     width: 60px;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 18px;
 }
 
 .iviewer_rotate_left {
