@@ -1626,8 +1626,8 @@ tr.summary-details-excluded { font-style:italic; }
 /*background:url(../images/view_now.png) no-repeat 0 0; */
 background: #75BAC0;
 border-radius: 5px;
-display:block; width:120px; height:30px; margin:0 auto; font-family:'Oswald'; 
-font-size:13px; text-align:center; text-transform:uppercase; text-decoration:none; line-height:30px; color:#fff; }
+display:block; width:120px; height:30px; margin:0 auto; font-weight: normal !important; 
+font-size:13px; text-align:center; text-decoration:none; line-height:30px; color:#fff; font-family: 'Lobster', cursive;}
 /*.view_now:hover { background:url(../images/view_now.png) no-repeat 0 -30px; }*/
 
 .new_products { background:url(../images/nav_line.png) repeat-x; padding:37px 0 0 0; }
