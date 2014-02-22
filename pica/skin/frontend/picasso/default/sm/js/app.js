@@ -682,6 +682,8 @@ App.ImageEditor = function(settings) {
         		_handler.reloadEffect();
         	});
         	*/
+			
+			$('#image-editor-main-image').find('.qq-upload-button').css('box-shadow', 'none');
 
             // Use the each() method to gain access to each elements attributes
 

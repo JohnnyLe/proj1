@@ -5,7 +5,10 @@
     width: 105px; padding: 7px 0; text-align:center;    
     background:#75BAC0;
 	border-radius: 5px;
-    font-family: 'Lobster', cursive;;
+    font-family: 'Lobster', cursive;
+	box-shadow: inset 0 0 4px #fff;
+	-moz-box-shadow: inset 0 0 4px #fff;
+    -webkit-box-shadow: inset 0 0 4px #fff;
 }
 .qq-upload-button-hover,.qq-upload-button:hover {background:#003147;}
 .qq-upload-button-focus {outline:1px dotted black;}
@@ -114,7 +117,7 @@
     float:left;
     font-family: 'Oswald';
     overflow-y: hidden;
-    height: 768px;
+    height: 775px;
 /*	background-image: url(../images/halloween_bgd.jpg);*/
 }
 .image-editor-col-main{

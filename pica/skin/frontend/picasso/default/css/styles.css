@@ -110,6 +110,17 @@ ul,ol         { list-style:none; }
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'langdon';
+    src: url('../fonts/langdon-webfont.eot');
+    src: url('../fonts/langdon-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/langdon-webfont.woff') format('woff'),
+         url('../fonts/langdon-webfont.ttf') format('truetype'),
+         url('../fonts/langdon-webfont.svg#alte_haas_groteskregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
 /* Layout ================================================================================ */
 .wrapper {
           /* edit by johnny*/
@@ -193,7 +204,7 @@ button.button::-moz-focus-inner { padding:0; border:0; } /* FF Fix */
 button.button { -webkit-border-fit:lines; } /* <- Safari & Google Chrome Fix */
 button.button { overflow:visible; width:auto; border:0; padding:0; margin:0; background:transparent; cursor:pointer; }
 button.button span { float:left;  height:32px; line-height:32px; font-family: 'Lobster', cursive; font-size:13px; text-align:center; white-space:nowrap; color:#fff; }
-button.button span span { background:#75BAC0; padding:0 12px;border-radius:5px; }
+button.button span span { background:#75BAC0; padding:0 12px;border-radius:5px; box-shadow: inset 0 0 4px #fff;-moz-box-shadow: inset 0 0 4px #fff;-webkit-box-shadow: inset 0 0 4px #fff;}
 button.button:hover span span { background:#75BAC0; }
 button.disabled {}
 button.disabled span {}
@@ -363,6 +374,7 @@ p.required { font-size:12px; text-align:right; color:#fff; }
     position: relative; 
     display: block;
     float: left;
+	font-family: langdon;
 }
 .breadcrumb li.active {
     color: white;
@@ -1179,9 +1191,7 @@ tr.summary-details-excluded { font-style:italic; }
 .cart .checkout-types li {  }
 .cart .checkout-types li button { height:51px; }
 .cart .checkout-types li button span { height:51px; line-height:53px; font-size:20px; }
-.cart .checkout-types li button span span { 	
-	background:#75BAC0; padding:0 50px; 
-	border-radius:5px;}
+.cart .checkout-types li button span span { 	background:#75BAC0; padding:0 50px; border-radius:5px; box-shadow: inset 0 0 4px #fff;-moz-box-shadow: inset 0 0 4px #fff;-webkit-box-shadow: inset 0 0 4px #fff;}
 .cart .checkout-types .paypal-or { margin:0 8px; line-height:2.3; }
 .cart .totals .checkout-types .paypal-or { clear:both; display:block; padding:3px 55px 8px 0; line-height:1.0; font-size:11px; }
 
@@ -1224,7 +1234,7 @@ tr.summary-details-excluded { font-style:italic; }
 .cart .discount .input-text { width:170px; height:14px; }
 .cart .discount .buttons-set { float:left; clear:none; padding:0; }
 .cart .discount .buttons-set button span { height:20px; line-height:20px; }
-.cart .discount .buttons-set button span span { height:20px; line-height:20px; background:#75BAC0; }
+.cart .discount .buttons-set button span span { height:20px; line-height:20px; background:#75BAC0; box-shadow: inset 0 0 4px #fff;-moz-box-shadow: inset 0 0 4px #fff;-webkit-box-shadow: inset 0 0 4px #fff;}
 .cart .discount .buttons-set button:hover span span { height:20px; line-height:20px; background:#35312F; }
 
 .cart .shipping p { padding-bottom:18px; }
@@ -1627,7 +1637,7 @@ tr.summary-details-excluded { font-style:italic; }
 background: #75BAC0;
 border-radius: 5px;
 display:block; width:120px; height:30px; margin:0 auto; font-weight: normal !important; 
-font-size:13px; text-align:center; text-decoration:none; line-height:30px; color:#fff; font-family: 'Lobster', cursive;}
+font-size:13px; text-align:center; text-decoration:none; line-height:30px; color:#fff; font-family: 'Lobster', cursive;box-shadow: inset 0 0 4px #fff;-moz-box-shadow: inset 0 0 4px #fff;-webkit-box-shadow: inset 0 0 4px #fff;}
 /*.view_now:hover { background:url(../images/view_now.png) no-repeat 0 -30px; }*/
 
 .new_products { background:url(../images/nav_line.png) repeat-x; padding:37px 0 0 0; }
@@ -1713,6 +1723,9 @@ ul.options-list img {width:100px;height:100px}
 	font-size:13px; text-align:center; text-decoration:none; line-height:40px; 
 	color:#fff !important;font-size:19px !important; margin-bottom:10px;cursor:pointer;float:none !important;
 	font-family: 'Lobster', cursive;
+	box-shadow: inset 0 0 4px #fff;
+	-moz-box-shadow: inset 0 0 4px #fff;
+    -webkit-box-shadow: inset 0 0 4px #fff;
 }
 .picasso-toolbar #share-buttons{display:inline-block;float:none !important;}
 .picasso-toolbar #share-buttons,
@@ -1725,15 +1738,19 @@ ul.options-list img {width:100px;height:100px}
 	height:51px;
 	line-height:53px;
 	color:#FFF!important;
-	z-index:999999;margin: 300px auto 0;text-align: center;font-size: 20px !important;width:310px;
+	z-index:999999;margin: 300px auto 0;text-align: center;font-size: 22px !important;width:310px;
 	cursor:pointer;
 	font-family: 'Lobster', cursive;
+	box-shadow: inset 0 0 4px #fff;
+	-moz-box-shadow: inset 0 0 4px #fff;
+	-webkit-box-shadow: inset 0 0 4px #fff;
 }
 .qq-upload-success {cursor: pointer;cursor: hand;line-height:45px;padding:5px;}
 .qq-upload-success.active{background-color:#F39814}
 .qq-image-upload-thumb{padding-right:5px}
 .group-option.hidden-title label{display:none}
 ul.sub-group-option{margin-left:20px;padding:20px}
+ul.sub-group-option li{padding: 5px 0;}
 #onestepcheckout-place-order span span {text-transform: capitalize; font-size: 18px;}
 .table-price tr.head-top td,.table-price tr.head-middle td {border-bottom:1px solid #fff;}
 .table-price tr td { padding:8px 0 0 0;}
