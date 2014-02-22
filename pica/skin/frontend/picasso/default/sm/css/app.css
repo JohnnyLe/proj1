@@ -121,7 +121,8 @@
 	width:75%;
 	float:left;
 	overflow: hidden;
-/*	background-image:url(../images/halloween_bgd.jpg)*/
+	background-image:url(../images/halloween_bgd.jpg);
+        background-size:100% 89%;
 }
 #toolbar {
 	padding: 10px 10px;
