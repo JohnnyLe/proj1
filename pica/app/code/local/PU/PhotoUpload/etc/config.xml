@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <PU_PhotoUpload>
+            <version>0.1.0</version>
+        </PU_PhotoUpload>
+    </modules>
+    <frontend>
+        <routers>
+            <!-- the <PhotoUpload> tagname appears to be arbitrary, but by
+            convention is should match the frontName tag below-->
+            <PhotoUpload>
+                <use>standard</use>
+                <args>
+                    <module>PU_PhotoUpload</module>
+                    <frontName>PhotoUpload</frontName>
+                </args>
+            </PhotoUpload>
+        </routers>
+        <!-- Declare layout im /app/design/frontend/base/default/layout -->
+        <layout>  
+            <updates>
+                <FileUpload>
+                    <file>PhotoUpload.xml</file> <!-- This is name of the layout file for this module -->
+                </FileUpload>
+            </updates>
+        </layout>
+    </frontend>
+    <global>
+        <blocks>
+            <test>
+                <!-- Path of the Block Folder, where all php files are located related to view -->
+                <class>PU_PhotoUpload_Block</class>  
+            </test>
+        </blocks>
+        <helpers>
+            <test>
+                <!-- Path of Helper Files -->
+                <class>PU_PhotoUpload_Helper</class> 
+            </test>
+        </helpers>
+    </global>
+</config>
