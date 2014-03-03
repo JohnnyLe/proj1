@@ -1,0 +1,44 @@
+<style>
+	#table-upload td {
+		padding: 10px;
+	}
+	#table-upload button {
+		height: 50px;
+		font-size: medium;
+		padding: 10px;
+		border: 2px solid #a1a1a1;
+		border-radius: 15px;
+		background: #1aa6ad;
+		color: #fff;
+		-webkit-box-shadow: 51px 10px 45px -22px rgba(0,0,0,0.84);
+		-moz-box-shadow: 51px 10px 45px -22px rgba(0,0,0,0.84);
+		box-shadow: 51px 10px 45px -22px rgba(0,0,0,0.84);
+	}
+</style>
+<h1>Upload your photos</h1>
+<table id="table-upload">
+	<tr>
+		<td>
+		<button type="button" title="My Computer" onclick="pica.importPhotos('my-computer');">
+			<span>My Computer</span>
+		</button></td>
+		<td>
+		<button type="button" title="Instagram" onclick="pica.importPhotos('instagram');">
+			<span>Instagram</span>
+		</button></td>
+		<td>
+		<button type="button" title="Facebook" onclick="pica.importPhotos('facebook');">
+			<span>Facebook</span>
+		</button></td>
+		<td>
+		<button type="button" title="Google Plus" onclick="pica.importPhotos('g-plus');">
+			<span>Google Plus</span>
+		</button></td>
+	</tr>
+</table>
+
+<div class="photo-gallery"></div>
+
+<form id="form-my-computer-upload" name="form-my-computer-upload" method="post" action="index/upload?type=my-computer&url=null" enctype="multipart/form-data">
+	<input type="file" id="file-input-upload" name="file-input-upload" style="visibility: hidden; width: 1px; height: 1px" />
+</form>
