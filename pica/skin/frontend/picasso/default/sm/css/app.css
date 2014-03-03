@@ -104,8 +104,8 @@
 	background-position:center;
 	width:100%;
 	height:652px;
-    border: 1px solid black;
-    position: relative;
+        /*border: 1px solid black;*/
+        position: relative;
 }
 #image-editor-image-list{
 	background-color:#fff;
@@ -157,7 +157,7 @@
 #apply-crop-button{margin:10px;float:right}
 #crop-button{margin:10px;float:left}
 .brightness-contrast{padding:10px 10px 40px}
-.qq-upload-button {cursor: pointer;cursor: hand;}
+.qq-upload-button {cursor: pointer;cursor: hand;font-size:14px;}
 
 
 /* Custom scrollbar*/

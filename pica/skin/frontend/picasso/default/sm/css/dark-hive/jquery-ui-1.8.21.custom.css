@@ -67,7 +67,7 @@
     box-shadow: inset 0 0 10px #000000;
 }
 .ui-widget-content a { color: #ffffff; }
-.ui-widget-header {box-shadow: inset 0 0 5px #000000; /*border: 1px solid #4B4A4A; background: #444444 url(images/ui-bg_highlight-soft_44_444444_1x100.png) 50% 50% repeat-x;*/ color: #ffffff;/*  font-weight: bold; */ }
+.ui-widget-header {box-shadow: 0 8px 8px -7px #000; /*border: 1px solid #4B4A4A; background: #444444 url(images/ui-bg_highlight-soft_44_444444_1x100.png) 50% 50% repeat-x;*/ color: #ffffff;/*  font-weight: bold; */ }
 .ui-widget-header a { color: #ffffff; }
 /*john custom */
 #group_option_container_1 .ui-widget-content{border-bottom: 0px!important}
