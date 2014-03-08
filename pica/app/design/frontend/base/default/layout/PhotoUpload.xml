@@ -5,22 +5,26 @@
             <block type="core/template" name="PhotoUpload" template="/photoupload/PhotoUpload.phtml" />
         </reference>
     </PhotoUpload_index_index> -->
-    
+
     <!-- name = 'content' is display in body content area. 'body_before_end' is displayed in the footer. 'after_body_start'-->
     <!-- You can also try changing the location the content appears in our page’s HTML by modifying the parent block from body_before_end to after_body_start or content. -->
 
     <default>
-    	<reference name="head">
+    	<!-- <reference name="head">
     		<action method="addJs"><script>jquery/jquery-1.11.0.min.js</script></action>
-    		<!-- <action method="addJs"><script>prototype/prototype.js</script></action> -->
+    		<action method="addJs"><script>jquery/jquery-ui-1.10.4.min.js</script></action>
+    		<action method="addJs"><script>prototype/prototype.js</script></action>
         	<action method="addJs"><script>photo_upload/import_photos.js</script></action>
             <action method="addJs"><script>photo_upload/photo_upload.js</script></action>
-            <!-- <action method="addJs"><script>prototype/window.js</script></action>
+            <action method="addCss"><stylesheet>css/jquery-ui.css</stylesheet></action>
+            <action method="addCss"><stylesheet>css/jquery.ui.core.css</stylesheet></action>
+            <action method="addCss"><stylesheet>css/jquery.ui.dialog.css</stylesheet></action>
+            <action method="addJs"><script>prototype/window.js</script></action>
             <action method="addItem"><type>js_css</type><name>prototype/windows/themes/default.css</name></action>
-        <action method="addItem"><type>js_css</type><name>prototype/windows/themes/darkX.css</name></action> -->
-    	</reference>
+        <action method="addItem"><type>js_css</type><name>prototype/windows/themes/darkX.css</name></action>
+    	</reference> -->
    		<reference name="content">
-        	<block type="core/template" name="PhotoUpload" template="/photoupload/PhotoUpload.phtml" />
+        	<!-- <block type="core/template" name="PhotoUpload" template="/photoupload/PhotoUpload.phtml" /> -->
         </reference>
     </default>
 
