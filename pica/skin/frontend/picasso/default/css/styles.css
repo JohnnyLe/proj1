@@ -1790,3 +1790,8 @@ dl.faq-list dt{color:white;}
 	float: none !important;
 	font-weight: bold;
 }
+
+
+.headerPrice{padding: 10px;}
+.headerPrice img {width: 150px;}
+.bodyPrice{float: left;margin-left: 20px;}
