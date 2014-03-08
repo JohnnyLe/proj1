@@ -16,7 +16,7 @@
                 }
 
                 //desitnation directory
-                $path = Mage::getBaseDir() . DS . 'media/photo_upload';
+                $path = Mage::getBaseDir() . DS . UPLOAD_DIRECTORY;
 
                 // trim file name from the URL
                 $filename = array_pop(explode('/', $photoURL));

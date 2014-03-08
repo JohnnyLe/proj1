@@ -37,7 +37,7 @@
             }
 
             if ($myUploader -> upload($url) == true) {
-                $this -> _redirect('*/*/index');
+                $this -> _redirect('index.php/PhotoUpload/index');
             } else {
                 echo 'There something wrong. Please try again.';
             }
