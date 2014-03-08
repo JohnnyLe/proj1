@@ -558,3 +558,42 @@
 	$.fn._reverse = [].reverse;
 	
 })(jQuery);
+
+// johnny: Create custom PriceSheet controller
+ var PriceController=
+    { 
+        setTabIndex:function (index)
+        {
+                    switch (index)
+                    {
+                        case 1: 
+                                document.getElementById("price_people").src="/skin/frontend/picasso/default/images/pricesheet/price_people_on.png";
+                                document.getElementById("price_scenic").src="/skin/frontend/picasso/default/images/pricesheet/price_scenic_off.png";
+                                document.getElementById("price_oil").src="/skin/frontend/picasso/default/images/pricesheet/price_oil_off.png";
+                                document.getElementById("price_pet").src="/skin/frontend/picasso/default/images/pricesheet/price_pet_off.png";
+                                document.getElementById("price_sheet").src="/skin/frontend/picasso/default/images/pricesheet/price_people_sheet.png";
+                            break;
+                        case 2: 
+                                document.getElementById("price_people").src="/skin/frontend/picasso/default/images/pricesheet/price_people_off.png";
+                                document.getElementById("price_scenic").src="/skin/frontend/picasso/default/images/pricesheet/price_scenic_on.png";
+                                document.getElementById("price_oil").src="/skin/frontend/picasso/default/images/pricesheet/price_oil_off.png";
+                                document.getElementById("price_pet").src="/skin/frontend/picasso/default/images/pricesheet/price_pet_off.png";
+                                document.getElementById("price_sheet").src="/skin/frontend/picasso/default/images/pricesheet/price_scenic_sheet.png";
+                                break;
+                        case 3:
+                                document.getElementById("price_people").src="/skin/frontend/picasso/default/images/pricesheet/price_people_off.png";
+                                document.getElementById("price_scenic").src="/skin/frontend/picasso/default/images/pricesheet/price_scenic_off.png";
+                                document.getElementById("price_oil").src="/skin/frontend/picasso/default/images/pricesheet/price_oil_on.png";
+                                document.getElementById("price_pet").src="/skin/frontend/picasso/default/images/pricesheet/price_pet_off.png";
+                                document.getElementById("price_sheet").src="/skin/frontend/picasso/default/images/pricesheet/price_oil_sheet.png";
+                                break;
+                        case 4:
+                                document.getElementById("price_people").src="/skin/frontend/picasso/default/images/pricesheet/price_people_off.png";
+                                document.getElementById("price_scenic").src="/skin/frontend/picasso/default/images/pricesheet/price_scenic_off.png";
+                                document.getElementById("price_oil").src="/skin/frontend/picasso/default/images/pricesheet/price_oil_off.png";
+                                document.getElementById("price_pet").src="/skin/frontend/picasso/default/images/pricesheet/price_pet_on.png";
+                                document.getElementById("price_sheet").src="/skin/frontend/picasso/default/images/pricesheet/price_pet_sheet.png";
+                                break;
+                        }
+                    }
+      };   
