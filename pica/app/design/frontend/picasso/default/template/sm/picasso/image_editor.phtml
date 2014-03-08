@@ -128,12 +128,12 @@
     <div id="image-editor-custom-painting">
         <?php echo $this->getChildHtml('product_options_wrapper')?>
     </div>
-    <div style="float:right;margin:20px;background-color: black;" class="qq-upload-button"><ul><li style="float:left;padding-left: 22px;">Price: </li><li style="float:left"><?php echo $this->getPriceHtml($_product, false, '_clone') ?></li></ul></div>
+    <div style="float:right;margin:20px;background-color: black;" class="qq-upload-button"><ul><li style="float:left;padding-left: 18px;padding-right: 5px">Price: </li><li style="float:left"><?php echo $this->getPriceHtml($_product, false, '_clone') ?></li></ul></div>
     <div style="float:right;margin:20px" id="back-edit-image"  class="qq-upload-button"><?php echo $this->__('Edit Image')?></div>
     <div style="float:right;margin:20px" id="add-to-cart" class="qq-upload-button"><?php echo $this->__('Add To Cart')?></div>
-    <div style="float:right;margin:25px">
+    <div style="float:right;margin:25px;font-family: 'Lobster', cursive;font-size: 14px;">
         <label for="qty"><?php echo $this->__('Qty:') ?></label>
-        <input style="text-align: center;" type="text" name="qty" id="qty" maxlength="12" value="<?php echo $this->getProductDefaultQty() * 1 ?>" title="<?php echo $this->__('Qty') ?>" class="input-text qty" />
+        <input style="text-align: center; font-family: 'Lobster', cursive;font-size: 14px;" type="text" name="qty" id="qty" maxlength="12" value="<?php echo $this->getProductDefaultQty() * 1 ?>" title="<?php echo $this->__('Qty') ?>" class="input-text qty" />
     </div>
 
     <div style="clear:both"></div>
