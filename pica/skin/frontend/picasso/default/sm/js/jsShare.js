@@ -65,7 +65,7 @@
                                                     .append($('<img/>')
                                                     .attr('src', settings.imagePath + 'images/' + button + '.png')
                                                     .attr('alt', '')
-                                                    .css({ width: 16, height: 16, marginTop: 8 }))
+                                                    .css({ width: 20, height: 20, marginTop: 8 }))
                                                     .click(function(){
                                                     	var link = $(this).attr('href');
                                                     	window.open(link,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;
@@ -77,7 +77,7 @@
                                                         dummy.remove();
                                                         var b = $(this);
                                                         if (settings.animate)
-                                                            b.find('img').stop(false, true).animate({ height: 24, width: 24, marginTop: 0 }, 300);
+                                                            b.find('img').stop(false, true).animate({ height: 28, width: 28, marginTop: 0 }, 300);
                                                         tooltip.html(b.attr('title'));
                                                         tooltip.css({ left: left,
                                                             top: function() { return container.offset().top - $(this).height(); }
@@ -85,7 +85,7 @@
 
                                                     }, function() {
                                                         if (settings.animate)
-                                                            $(this).find('img').stop(false, true).animate({ width: 16, height: 16, marginTop: 8 }, 300);
+                                                            $(this).find('img').stop(false, true).animate({ width: 20, height: 20, marginTop: 8 }, 300);
                                                         tooltip.stop(false, true).fadeOut("slow");
 
                                                     }));

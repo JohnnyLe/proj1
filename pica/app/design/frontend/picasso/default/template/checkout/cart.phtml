@@ -39,6 +39,17 @@
         <li class='active check-out'>Checkout</li>
     </ul>    
 </div>
+<!-- Update CSS all button & its hover event -->
+<script>
+	jQuery('button.button span span').not('.discount span').not('.checkout-types span').css('background', '#35312F').hover(
+		function (){
+			jQuery(this).css('background', '#75BAC0')
+		}, 
+		function (){
+			jQuery(this).css('background', '#35312F')
+		}
+	);
+</script>
 <!-- End breadcrumb menu -->
 <div class="cart">
     <div class="page-title title-buttons">

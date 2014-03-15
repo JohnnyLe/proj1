@@ -531,7 +531,7 @@ App.ImageEditor = function(settings) {
         	});
 
         	$('#share-buttons').jsShare({ 
-        									maxwidth: 300,
+        									maxwidth: 310,
         									imagePath:settings.siteUrl+'skin/frontend/picasso/default/sm/',
         									delicious:false,
         									stumbleupon:false,
