@@ -260,6 +260,8 @@
                             if (element.checked) {
                                 if (typeof configOptions[element.getValue()] != 'undefined') {
                                     curConfig = configOptions[element.getValue()];
+                                    console.log("curConfig:");
+                                    console.log(curConfig);
                                 }
                             }
                         } else if(element.hasClassName('datetime-picker') && !skipIds.include(optionId)) {
@@ -381,7 +383,8 @@
                         return result;
                     }
                 });
-                //console.log(result);
+                console.log("result SQLike Option select:");
+                console.log(result);
                 // update option
 
                 var availableOptions = {};
@@ -541,12 +544,46 @@
                 priceType = 'add_price';
 
                 var priceLabel = $($(sender).options[$(sender).selectedIndex]).getAttribute('price');
+                               
                 if($('sub-total-price')){
                     $('sub-total-price').update(priceLabel);
                 }
                 else{
                     $(sender).insert({after: '<br/><br/><br/><span style="font-size: 16px;font-weight: bold;" id="sub-total-price">'+priceLabel+'</span>'});
+                } 
+                
+                
+                 //johnny: Update Imge option (Canvas size)
+                // get Image name selected:  
+                var imageName=$($(sender).options[$(sender).selectedIndex]).getAttribute('org_text');
+                imageName=imageName.replace('"','').replace('"','');
+                console.log("imageName"+imageName);
+                
+                var selectedLayOut=jQuery("#group-option-subcontainer10").find('li.selected').find('img').attr('alt');
+                if(selectedLayOut==='Single Panel')
+                {
+                    imageName="Single"+imageName+".png";
                 }
+                if(selectedLayOut==='Double Panel')
+                {
+                    imageName="Double"+imageName+".png";
+                }
+                if(selectedLayOut==='Triple Panel')
+                {
+                    imageName="Triple"+imageName+".png";
+                }
+                if(selectedLayOut==='Quadruple Panel')
+                {
+                    imageName="Quadruple"+imageName+".png";
+                }
+                console.log(imageName);
+                if($('sub-total-image')){
+                    $('sub-total-image').remove();
+                    $(sender).insert({after: '<span id="sub-total-image" style="margin-left: 2%;margin-top: -12px;position: absolute;"><img src="/media/picasso/canvas_size/'+imageName+'"></span>'});
+                }
+                else{
+                     $(sender).insert({after: '<span id="sub-total-image" style="margin-left: 2%;margin-top: -12px;position: absolute;"><img src="/media/picasso/canvas_size/'+imageName+'"></span>'});
+                 }  
             }
 
             if(jQuery(sender).attr('name') == 'options[14]'){

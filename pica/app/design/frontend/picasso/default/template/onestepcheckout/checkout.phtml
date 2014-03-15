@@ -599,7 +599,7 @@ Event.observe(window, 'load', function() {
         }
     };
 
-    login_popup = new OneStepCheckout_Popup('onestepcheckout-login-popup','onestepcheckout-login-link', 'div#onestepcheckout-login-popup p.close a', function() {
+    //login_popup = new OneStepCheckout_Popup('onestepcheckout-login-popup','onestepcheckout-login-link', 'div#onestepcheckout-login-popup p.close a', function() {
         /* Callback for closing the popup */
         Event.stopObserving(document, 'keypress', onkeypressHandler);
     }, function() {
@@ -615,7 +615,7 @@ Event.observe(window, 'load', function() {
 
     });
 
-    button.observe('click', loginButtonFunction);
+    //button.observe('click', loginButtonFunction);
 
     $('onestepcheckout-forgot-password-link').observe('click', function(e)  {
         Event.stop(e);

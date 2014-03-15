@@ -557,7 +557,7 @@ $helper = Mage::helper('onestepcheckout/checkout');
 <script>
 var login_popup;
 Event.observe(window, 'load', function() {
-    login_popup = new OneStepCheckout_Popup('onestepcheckout-login-popup','onestepcheckout-login-link', 'div#onestepcheckout-login-popup p.close a');
+    /* login_popup = new OneStepCheckout_Popup('onestepcheckout-login-popup','onestepcheckout-login-link', 'div#onestepcheckout-login-popup p.close a');
 
     $('onestepcheckout-forgot-password-link').observe('click', function(e)    {
         Event.stop(e);
@@ -574,7 +574,7 @@ Event.observe(window, 'load', function() {
         $('onestepcheckout-login-popup-contents-login').show();
 
     });
-
+   */
     var forgot_password_button = $('onestepcheckout-forgot-button');
 
     forgot_password_button.observe('click', function(e) {

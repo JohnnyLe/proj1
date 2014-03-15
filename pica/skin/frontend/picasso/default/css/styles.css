@@ -1704,7 +1704,7 @@ ul.options-list img {width:100px;height:100px}
 .custom-paint-group li dl{padding:20px}
 .faq-items dt{color:#514742;margin:20px 0px;color:#75BAC0;font-weight: bold;}
 .faq-list ,.faq-list a {color:#75BAC0;font-weight: bold;}
-.custom-paint-group .custom-option-description{margin-bottom: 10px;padding-bottom: 10px;}
+.custom-paint-group .custom-option-description{margin-bottom: 10px;padding-bottom: 10px;width: 50%;height: 115px;}
 /* =======================================================================================*/
 .picasso-toolbar {text-align:center;}
 #save-effect {margin-left:0 !important}
