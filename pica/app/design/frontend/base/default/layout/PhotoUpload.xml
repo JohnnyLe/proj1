@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout>
+    <!-- <PhotoUpload_index_index>
+        <reference name="content">
+            <block type="core/template" name="PhotoUpload" template="/photoupload/PhotoUpload.phtml" />
+        </reference>
+    </PhotoUpload_index_index> -->
+    
+    <!-- name = 'content' is display in body content area. 'body_before_end' is displayed in the footer. 'after_body_start'-->
+    <!-- You can also try changing the location the content appears in our page’s HTML by modifying the parent block from body_before_end to after_body_start or content. -->
+
+    <default>
+    	<reference name="head">
+    		<action method="addJs"><script>jquery/jquery-1.11.0.min.js</script></action>
+    		<!-- <action method="addJs"><script>prototype/prototype.js</script></action> -->
+        	<action method="addJs"><script>photo_upload/import_photos.js</script></action>
+            <action method="addJs"><script>photo_upload/photo_upload.js</script></action>
+            <!-- <action method="addJs"><script>prototype/window.js</script></action>
+            <action method="addItem"><type>js_css</type><name>prototype/windows/themes/default.css</name></action>
+        <action method="addItem"><type>js_css</type><name>prototype/windows/themes/darkX.css</name></action> -->
+    	</reference>
+   		<reference name="content">
+        	<block type="core/template" name="PhotoUpload" template="/photoupload/PhotoUpload.phtml" />
+        </reference>
+    </default>
+
+    <!-- If you have output='toHtml' it will display in 2 places: one is in content & another is in footer. -->
+    <!-- <default>
+   		<reference name="content">
+        	<block type="core/template" name="PhotoUpload" output="toHtml" template="/photoupload/PhotoUpload.phtml" />
+        </reference>
+    </default> -->
+</layout>

@@ -11,8 +11,20 @@
     <PRODUCT_TYPE_picasso translate="label" module="picasso">
         <label>Catalog Product View (Picasso)</label>
         <reference name="head">
+            <!-- begin htxuankhoa - photo upload -->
+            <action method="addJs"><script>jquery/jquery-1.11.0.min.js</script></action>
+            <action method="addJs"><script>jquery/jquery-ui-1.10.4.min.js</script></action>
+            <!-- <action method="addJs"><script>sm/js/import_photos.js</script></action> -->
+            <action method="addItem"><type>skin_js</type><name>sm/js/import_photos.js</name><params/></action>
+
+
+            <action method="addCss"><stylesheet>sm/css/jquery-ui.css</stylesheet></action>
+            <action method="addCss"><stylesheet>sm/css/jquery.ui.core.css</stylesheet></action>
+            <action method="addCss"><stylesheet>sm/css/jquery.ui.dialog.css</stylesheet></action>
+            <!-- end htxuankhoa - photo upload -->
+
             <action method="setTitle"><title>Picasso</title></action>
-            <action method="addItem"><type>skin_js</type><name>sm/js/jquery-ui-1.8.21.custom.min.js</name><params/></action>
+            <!-- <action method="addItem"><type>skin_js</type><name>sm/js/jquery-ui-1.8.21.custom.min.js</name><params/></action> -->
             <action method="addItem"><type>skin_js</type><name>sm/js/jquery.simplemodal-1.4.3.js</name><params/></action>
             <action method="addItem"><type>skin_js</type><name>sm/js/jquery.mousewheel.min.js</name><params/></action>
             <action method="addItem"><type>skin_js</type><name>sm/js/jquery.iviewer.js</name><params/></action>
@@ -26,10 +38,10 @@
             <action method="addItem"><type>skin_js</type><name>sm/js/SQLike.js</name><params/></action>
 
 
-            <action method="addItem"><type>skin_js</type><name>sm/js/app.js</name><params/></action>
-            
-            <action method="addItem"><type>skin_css</type><name>sm/css/dark-hive/jquery-ui-1.8.21.custom.css</name><params/></action>
-            
+            <!-- <action method="addItem"><type>skin_js</type><name>sm/js/app.js</name><params/></action> -->
+
+            <!-- <action method="addItem"><type>skin_css</type><name>sm/css/dark-hive/jquery-ui-1.8.21.custom.css</name><params/></action> -->
+
             <action method="addItem"><type>skin_css</type><name>sm/css/app.css</name><params/></action>
             <action method="addItem"><type>skin_css</type><name>sm/css/jsShare.css</name><params/></action>
             <action method="addItem"><type>skin_css</type><name>sm/css/jquery.Jcrop.min.css</name><params/></action>
@@ -42,7 +54,7 @@
            	<remove name="header"/>
            	<remove name="footer"/>
         </reference>
-        
+
         <reference name="product.info">
             <action method="setTemplate"><template>sm/picasso/catalog/product/view.phtml</template></action>
         	<block type="picasso/imageEditor" name="image_editor" template="sm/picasso/image_editor.phtml">

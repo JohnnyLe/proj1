@@ -1,3 +1,129 @@
+<style>
+
+    #upload-popup h1 {
+        float: left;
+    }
+
+    .upload-image {
+        background: #75BAC0;
+        border-radius: 5px;
+        height: 70px;
+        line-height: 66px;
+        color: #FFF !important;
+        text-align: center;
+        font-size: 40px !important;
+        width: 330px;
+        cursor: pointer;
+        font-family: 'Lobster', cursive;
+        margin: 300px auto 0;
+        box-shadow: inset 0 0 4px #fff;
+        -moz-box-shadow: inset 0 0 4px #fff;
+        -webkit-box-shadow: inset 0 0 4px #fff;
+    }
+
+    #photo-gallery {
+        float: left;
+    }
+
+    .button-upload {
+        cursor: pointer;
+        border-radius: 5px;
+        border: 2px #E7E7E7;
+        /*background-color: #F4F4F4;*/
+        /* IE10 Consumer Preview */
+        background-image: -ms-linear-gradient(top, #FFFFFF 0%, #F4F4F4 100%);
+        /* Mozilla Firefox */
+        background-image: -moz-linear-gradient(top, #FFFFFF 0%, #F4F4F4 100%);
+        /* Opera */
+        background-image: -o-linear-gradient(top, #FFFFFF 0%, #F4F4F4 100%);
+        /* Webkit (Safari/Chrome 10) */
+        background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #FFFFFF), color-stop(1, #F4F4F4));
+        /* Webkit (Chrome 11+) */
+        background-image: -webkit-linear-gradient(top, #FFFFFF 0%, #F4F4F4 100%);
+        /* W3C Markup, IE10 Release Preview */
+        background-image: linear-gradient(to bottom, #FFFFFF 0%, #F4F4F4 100%);
+        color: #696969;
+        /*width: 20%;*/
+       width: 44%;
+        height: 60px;
+        float: left;
+        margin: 15px 15px;
+        font-size: large;
+        padding-top: 1%;
+    }
+    .button-upload img {
+        margin-left: 7%;
+        vertical-align: middle;
+    }
+
+    .button-upload span {
+    }
+
+    .button-upload p {
+        margin-top: 4%;
+        /*margin-top: 10%;*/
+    }
+
+    .my-computer {
+        cursor: pointer;
+        text-align: center;
+        border-radius: 5px;
+        border: 2px #E7E7E7;
+        /*background-color: #F4F4F4;*/
+        /* IE10 Consumer Preview */
+        background-image: -ms-linear-gradient(top, #FFFFFF 0%, #F4F4F4 100%);
+        /* Mozilla Firefox */
+        background-image: -moz-linear-gradient(top, #FFFFFF 0%, #F4F4F4 100%);
+        /* Opera */
+        background-image: -o-linear-gradient(top, #FFFFFF 0%, #F4F4F4 100%);
+        /* Webkit (Safari/Chrome 10) */
+        background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #FFFFFF), color-stop(1, #F4F4F4));
+        /* Webkit (Chrome 11+) */
+        background-image: -webkit-linear-gradient(top, #FFFFFF 0%, #F4F4F4 100%);
+        /* W3C Markup, IE10 Release Preview */
+        background-image: linear-gradient(to bottom, #FFFFFF 0%, #F4F4F4 100%);
+        color: #696969;
+        height: 80px;
+        width: 92% !important;
+        /*width: 91% !important;*/
+        margin-left: 15px;
+        font-size: large;
+        padding-top: 1%;
+    }
+    .my-computer img {
+        vertical-align: middle;
+    }
+
+    .my-computer span {
+    }
+
+    .my-computer p {
+        margin-top: 2%;
+    }
+
+    #upload-popup {
+        box-shadow: 0 0 10px #000000;
+    }
+
+    #loading img {
+        vertical-align: middle;
+    }
+
+    .instagram-placeholder {
+        display: inline;
+    }
+
+    .photo-gallery {
+        display: inline;
+        float: left !important;
+        text-align: left !important;
+    }
+
+    .photo-gallery img {
+        margin-right: 2%;
+        margin-bottom: 2%;
+    }
+</style>
 <?php $groupsEffect = $this->getGroupsEffect()?>
 <?php $_product = $this->getProduct()?>
 <div id="effect-container">
@@ -6,7 +132,7 @@
             <h3 class="ui-widget-header"><?php echo $this->__("Action")?></h3>
             <div style="position:relative;padding:10px">
                 <div style="float:left;width: 100%">
-                    <div id="file-uploader-demo1"></div>
+                   <!-- <div id="file-uploader-demo1"></div> -->
                 </div>
                 <div style="position: absolute; left: 47%;">
                     <ul><li style="float:left">Price :</li><li style="float:left"><?php echo $this->getPriceHtml($_product, true) ?></li></ul>
@@ -62,22 +188,22 @@
                                     <li title="<?php echo $effect['name'] ?>" id="image-effect-<?php echo $effect['id']?>" effect="<?php echo $effect['code']?>" effect_id="<?php echo $effect['id']?>" default_brightness="<?php echo $effect['default_brightness']?>" default_contrast="<?php echo $effect['default_contrast']?>">
                                         <div class="ui-state-default effect-thumb">
                                             <?php
-                                                $imgUrl = Mage::helper('picasso')->getImageUrl($effect['image']);
-                                                $size = Mage::helper('picasso')->getImageThumbSize($effect['image']);
-                                                $file_exist = Mage::helper('picasso')->getFileExists($effect['image']);
-                                                if (is_array($size) && $file_exist){
-                                                    echo '<img  src="'.$imgUrl.'"/>';
-                                                }
+                                            $imgUrl = Mage::helper('picasso') -> getImageUrl($effect['image']);
+                                            $size = Mage::helper('picasso') -> getImageThumbSize($effect['image']);
+                                            $file_exist = Mage::helper('picasso') -> getFileExists($effect['image']);
+                                            if (is_array($size) && $file_exist) {
+                                                echo '<img  src="' . $imgUrl . '"/>';
+                                            }
                                             ?>
                                         </div>
                                         <div style="bottom:0px;text-align: center"><?php echo $effect['name'] ?></div>
                                     </li>
-                                <?php endforeach;?>
+                                <?php endforeach; ?>
                             </ol>
                         </div>
                     </div>
                     <div style="clear: both;"></div>
-                <?php endforeach;?>
+                <?php endforeach; ?>
             </div>
         </div>
         <div id="image-editor-image-list"></div>
@@ -89,7 +215,7 @@
                 <li class="active">Choose photo filter</li>
                 <li>Customize</li>
                 <li class='check-out'>Checkout</li>
-            </ul>    
+            </ul>
         </div>
         <!-- End breadcrumb menu -->
         <div class="picasso-toolbar">
@@ -102,47 +228,106 @@
         <div id="image-editor-main-image" class="viewer">
             <div style="background:none;z-index: 99999999;position:absolute;top:45%;left:35%;width: 310px;height: 60px;cursor: hand;" class="qq-upload-button">
                 <div style="direction: ltr;position: relative;overflow: hidden;width: 310px;height: 60px;">
-                    <input style="position:absolute;font-size: 200px;top: 0px;right: 0px;"  type="file"  id="ajax-upload-file2"/>
+                    <!-- <input style="position:absolute;font-size: 200px;top: 0px;right: 0px;"  type="file"  id="ajax-upload-file2"/> -->
                 </div>
             </div>
-            <div class="upload-image" id="upload-image">Upload Image
-            </div>
+            <!-- <div class="upload-image" id="upload-image">Upload Image
+            </div> -->
+
+
+            <!-- htxuankhoa - modified -->
+                                <div class="upload-image" id="upload-image">Photo Uploader</div>
+
+<div id="upload-popup" title="Where's Your Photo At?" style="display:none;">
+    <br />
+    <div id="loading">
+        <p>
+        <img src="http://<?php echo $_SERVER['SERVER_NAME']; ?>/images/loading.gif" title="loading..." width="90" height="90" />
+        <span>We are connecting to the server, please wait a minute...</span>
+        </p>
+    </div>
+    <div id="social">
+        <div id="my-computer" class="my-computer">
+            <p>
+                <img src="http://<?php echo $_SERVER['SERVER_NAME']; ?>/images/mycomputer.png" title="Upload from your computer" width="50" height="50" />
+                <span> My Computer</span>
+            </p>
+        </div>
+
+        <div id="instagram" class="button-upload">
+            <p>
+                <img src="http://<?php echo $_SERVER['SERVER_NAME']; ?>/images/instagram.jpg" title="Upload from Instagram" width="30" height="30" />
+                <span> Instagram</span>
+            </p>
+        </div>
+
+        <div id="facebook" class="button-upload">
+            <p>
+                <img src="http://<?php echo $_SERVER['SERVER_NAME']; ?>/images/facebook.jpg" title="Upload from Facebook" width="30" height="30" />
+                <span>Facebook</span>
+            </p>
+        </div>
+
+        <!-- <br /> -->
+
+        <!-- <div id="photobucket" class="button-upload">
+            <p>
+                <img src="http://<?php echo $_SERVER['SERVER_NAME']; ?>/images/photobucket.png" title="Upload from PhotoBucket" width="30" height="30" />
+                <span> PhotoBucket</span>
+            </p>
+        </div>
+
+        <div id="gplus" class="button-upload">
+            <p>
+                <img src="http://<?php echo $_SERVER['SERVER_NAME']; ?>/images/gplus.png" title="Upload from Google Plus" width="30" height="30" />
+                <span>Google Plus</span>
+            </p>
+        </div> -->
+    </div>
+    <h1>Your photos</h1>
+    <div class="photo-gallery">
+    </div>
+</div>
+
+<form id="form-my-computer-upload" name="form-my-computer-upload" method="post" action="index/upload?type=my-computer&url=null" enctype="multipart/form-data">
+    <input type="file" id="file-input-upload" name="file-input-upload" style="visibility: hidden; width: 1px; height: 1px" />
+</form>
+
         </div>
     </div>
     <iframe style="display:none" id="download-frame" src=""></iframe>
 </div>
 
 <div class="ui-widget-content" id="custom-painting" style="width:auto;display:none">
-    
+
     <!-- Add more breadcrumb menu -->
         <div class="breadcrumb-wrapper">
             <ul class="breadcrumb">
                 <li>Choose photo filter</li>
                 <li class="active">Customize</li>
                 <li class='check-out'>Checkout</li>
-            </ul>    
+            </ul>
         </div>
     <!-- End breadcrumb menu -->
-    
-    <h3 class="ui-widget-header"><?php echo $this->__("Custom Painting")?></h3>
+
+<!--    <h3 class="ui-widget-header"><?php echo $this->__("Custom Painting")?></h3> -->
     <div id="image-editor-custom-painting">
         <?php echo $this->getChildHtml('product_options_wrapper')?>
     </div>
-    <div style="float:right;margin:20px" class="qq-upload-button"><ul><li style="float:left;padding-left: 10px;">Price: </li><li style="float:left"><?php echo $this->getPriceHtml($_product, false, '_clone') ?></li></ul></div>
+    <div style="float:right;margin:20px;background-color: black;" class="qq-upload-button"><ul><li style="float:left;padding-left: 18px;padding-right: 5px">Price: </li><li style="float:left"><?php echo $this->getPriceHtml($_product, false, '_clone') ?></li></ul></div>
     <div style="float:right;margin:20px" id="back-edit-image"  class="qq-upload-button"><?php echo $this->__('Edit Image')?></div>
     <div style="float:right;margin:20px" id="add-to-cart" class="qq-upload-button"><?php echo $this->__('Add To Cart')?></div>
-    <div style="float:right;margin:25px">
+    <div style="float:right;margin:25px;font-family: 'Lobster', cursive;font-size: 14px;">
         <label for="qty"><?php echo $this->__('Qty:') ?></label>
-        <input type="text" name="qty" id="qty" maxlength="12" value="<?php echo $this->getProductDefaultQty() * 1 ?>" title="<?php echo $this->__('Qty') ?>" class="input-text qty" />
+        <input style="text-align: center; font-family: 'Lobster', cursive;font-size: 14px;" type="text" name="qty" id="qty" maxlength="12" value="<?php echo $this->getProductDefaultQty() * 1 ?>" title="<?php echo $this->__('Qty') ?>" class="input-text qty" />
     </div>
 
     <div style="clear:both"></div>
 </div>
 
-<script>
-    appSettings = <?php echo $this->getDefaultConfig()?>;
+<!-- <script>
+                appSettings = <?php echo $this->getDefaultConfig()?>;
     <?php if($editJsonConfig = $this->getEditJsonConfig()):?>
-    appSettings.currentImageEdit = <?php echo $editJsonConfig?>;
-        <?php endif;?>
-
-</script>
+appSettings.currentImageEdit = <?php echo $editJsonConfig?>
+;
+        <?php endif; ?></script> -->
