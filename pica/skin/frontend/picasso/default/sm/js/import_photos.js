@@ -1,5 +1,4 @@
 $(document).ready(function() {
-
     // Handle event for my computer upload type.
     $("#file-input-upload").change(function() {
         // If file upload change value, display window alert to ask user want to upload this file.
@@ -28,7 +27,7 @@ $(document).ready(function() {
             modal : true,
             height : 600,
             width : 850,
-            position: [350, 50],
+            position : [350, 50],
             close : function() {
                 $('#upload-image').show();
             }
@@ -61,6 +60,7 @@ var instagramWindow = null;
 
 pica = {
     importPhotos : function(photoResourceType) {
+        $('.photo-gallery').empty();
         switch(photoResourceType) {
             case 'my-computer':
                 this.importPhototsFromMyComputer();
@@ -179,6 +179,7 @@ pica = {
                 $('#upload-popup h1').show();
 
                 var result = $.parseJSON(data);
+                console.log(result);
 
                 //Instagram limits to max 20, but you can do less for your layout.
                 var numberToDisplay = result.data.length;
@@ -233,14 +234,16 @@ pica = {
                 $('#upload-popup h1').show();
 
                 var result = $.parseJSON(data);
+                // console.log(result);
+                // console.log(result[0][0].images[2]);
 
                 //Facebook limits to max 20, but you can do less for your layout.
-                var numberToDisplay = result.data.length;
+                var numberToDisplay = result[0].length;
 
                 // console.log(result.data[0].images.standard_resolution);
 
                 for (var i = 0; i < numberToDisplay; i++) {
-                    $(".photo-gallery").append("<a target='_blank' href='http://pica.local/PhotoUpload/index/upload?type=facebook&url=" + result.data[i].source + "'><img class='instagram-image' src='" + result.data[i].images[2].source + "' /></a>");
+                    $(".photo-gallery").append("<a target='_blank' href='http://pica.local/PhotoUpload/index/upload?type=facebook&url=" + result[0][i].source + "'><img class='instagram-image' src='" + result[0][i].images[2].source + "' /></a>");
                     // $(".photo-gallery").append("<div class='instagram-placeholder'><a target='_blank' href='http://pica.local/PhotoUpload/index/upload?type=facebook&url=" + result.data[i].source + "'><img class='instagram-image' src='" + result.data[i].images[2].source + "' /></a></div>");
                 }
             },
