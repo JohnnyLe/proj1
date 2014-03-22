@@ -1,19 +1,26 @@
 $(document).ready(function() {
     // Handle event for my computer upload type.
     $("#file-input-upload").change(function() {
+        // htxuankhoa - integrate with existed module.
+        qq.extend();
+        qq.FileUploaderBasic.prototype._uploadFileList(document.getElementById('file-input-upload').files);
+        return;
+
+
+
         // If file upload change value, display window alert to ask user want to upload this file.
-        var result = confirm("Do you want to upload this file to your gallery?");
+        //var result = confirm("Do you want to upload this file to your gallery?");
 
         // If user pressed OK button.
-        if (result == true) {
+        //if (result == true) {
             // Get file upload element and fire click event on it.
-            document.getElementById('form-my-computer-upload').submit();
-        } else {
-            alert("You have cancelled upload file.");
+        //    document.getElementById('form-my-computer-upload').submit();
+        //} else {
+        //    alert("You have cancelled upload file.");
 
             // Clear current value of file upload control.
-            $(this).val('');
-        }
+        //    $(this).val('');
+        //}
     });
 
     $('#upload-image').click(function(e) {
@@ -185,8 +192,11 @@ pica = {
                 var numberToDisplay = result.data.length;
 
                 for (var i = 0; i < numberToDisplay; i++) {
+                    // htxuankhoa - integrate with existed module.
+                    $(".photo-gallery").append("<a target='_blank' href='http://pica.local/picasso/upload?qqfile=" + result.data[i].images.standard_resolution.url + "'><img class='instagram-image' src='" + result.data[i].images.thumbnail.url + "' /></a>");
+
                     // $(".photo-gallery").append("<div class='instagram-placeholder'><a target='_blank' href='http://pica.local/PhotoUpload/index/upload?type=instagram&url=" + result.data[i].images.standard_resolution.url + "'><img class='instagram-image' src='" + result.data[i].images.thumbnail.url + "' /></a></div>");
-                    $(".photo-gallery").append("<a target='_blank' href='http://pica.local/PhotoUpload/index/upload?type=instagram&url=" + result.data[i].images.standard_resolution.url + "'><img class='instagram-image' src='" + result.data[i].images.thumbnail.url + "' /></a>");
+                    //$(".photo-gallery").append("<a target='_blank' href='http://pica.local/PhotoUpload/index/upload?type=instagram&url=" + result.data[i].images.standard_resolution.url + "'><img class='instagram-image' src='" + result.data[i].images.thumbnail.url + "' /></a>");
                 }
             },
             error : function(textStatus, errorThrown) {
@@ -243,7 +253,10 @@ pica = {
                 // console.log(result.data[0].images.standard_resolution);
 
                 for (var i = 0; i < numberToDisplay; i++) {
-                    $(".photo-gallery").append("<a target='_blank' href='http://pica.local/PhotoUpload/index/upload?type=facebook&url=" + result[0][i].source + "'><img class='instagram-image' src='" + result[0][i].images[2].source + "' /></a>");
+                    // htxuankhoa - integrate with existed module.
+                    $(".photo-gallery").append("<a target='_blank' href='http://pica.local/picasso/upload?qqfile=" + result[0][i].source + "'><img class='instagram-image' src='" + result[0][i].images[2].source + "' /></a>");
+
+                    //$(".photo-gallery").append("<a target='_blank' href='http://pica.local/PhotoUpload/index/upload?type=facebook&url=" + result[0][i].source + "'><img class='instagram-image' src='" + result[0][i].images[2].source + "' /></a>");
                     // $(".photo-gallery").append("<div class='instagram-placeholder'><a target='_blank' href='http://pica.local/PhotoUpload/index/upload?type=facebook&url=" + result.data[i].source + "'><img class='instagram-image' src='" + result.data[i].images[2].source + "' /></a></div>");
                 }
             },
