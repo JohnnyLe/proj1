@@ -1794,4 +1794,27 @@ dl.faq-list dt{color:white;}
 
 .headerPrice{padding: 10px;}
 .headerPrice img {width: 150px;}
-.bodyPrice{float: left;margin-left: 20px;}
+.bodyPrice1{
+     float: left;
+     margin-left: -110px;
+     padding-top: 56px;
+     width: 980px;
+}
+.bodyPrice2{
+     float: left;
+     margin-left: -126px;
+     padding-top: 56px;
+     width: 980px;
+}
+.bodyPrice3{
+     float: left;
+     margin-left: -123px;
+     padding-top: 56px;
+     width: 980px;
+}
+.bodyPrice4{
+     float: left;
+     margin-left: -142px;
+     padding-top: 56px;
+     width: 980px;
+}

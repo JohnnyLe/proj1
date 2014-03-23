@@ -126,11 +126,7 @@ class SM_Picasso_Block_Override_Catalog_Product_View_Options extends Mage_Catalo
 	        		$htmlChildren.= $this->getOptionHtml($_option);
 	        		$htmlChildren.='<div class="custom-option-description">'.str_replace("\n", "<br/>",$_option->getDefaultDescription()).'</div>';
                                 
-                                // johnny add custmom image
-                                echo '<script type="text/javascript">'.NL;
-                                echo 'console.log("'.$_option.'");'.NL; 
-                                echo '</script>'.NL;
-                                //$htmlChildren.='<img class="custom-paint-option-img" src="'.$_option->getOptionImage($_value).'"/>';
+                              // johnny add custmom image                
 	        	    $htmlChildren.= '</div>';
                 }
 	        	$htmlChildren.='</div>';
