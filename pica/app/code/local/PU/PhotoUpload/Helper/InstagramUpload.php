@@ -63,6 +63,7 @@
         }
 
         public function getListOfAlbums($userID) {
+
             $access_token = Mage::getSingleton("core/session") -> getInstagramAccessToken();
             //$url = 'https://api.instagram.com/v1/media/popular?client_id=' . $this->clientID;
             $url = 'https://api.instagram.com/v1/users/' . $userID . '/media/recent/?access_token=' . $access_token;
