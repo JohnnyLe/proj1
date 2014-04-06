@@ -864,11 +864,12 @@ qq.UploadButton.prototype = {
         qq.css(input2, {
             opacity:0
         });
+        
         qq.attach(input2, 'change', function(){
             self._options.onChange(input2);
+            jQuery("#upload-popup").dialog('close');
         });
-
-
+        
         qq.attach(input, 'mouseover', function(){
             qq.addClass(self._element, self._options.hoverClass);
         });

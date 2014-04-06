@@ -44,9 +44,9 @@ class SM_Picasso_ImageController extends Mage_Core_Controller_Front_Action
 		$cmd = '"C:/Program Files/GIMP 2/bin/gimp-2.8.exe" -i -b "'.$script.'"';
 		$return ='' ;
 		$result = exec($cmd,$output,$return);
-		foreach(){
-			
-		}
+//		foreach(){
+//			
+//		}
 	}
 	
 	function convertImage(){

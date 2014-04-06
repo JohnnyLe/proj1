@@ -33,6 +33,42 @@ class SM_Picasso_UploadController extends Mage_Core_Controller_Front_Action
 		echo htmlspecialchars(json_encode($result), ENT_NOQUOTES);
 	}
 	
+        
+        
+        public function upload_urlAction(){
+		$sessionId = Mage::helper('picasso')->getSessionId();
+		// list of valid extensions, ex. array("jpeg", "xml", "bmp")
+		$allowedExtensions = Mage::helper('picasso')->getFileImageExtensionAllow();//array("jpeg", "png", "bmp","gif","jpg");
+		// max file size in bytes
+		$sizeLimit = Mage::helper('picasso')->getImageFileSizeAllow();
+		
+		$uploader = new qqFileUploader($allowedExtensions, $sizeLimit);
+		$uploadDir = Mage::getBaseDir('base').DS.'media'.DS.'picasso'.DS.'uploads'.DS.$sessionId.DS;
+		
+                $urlImage=$_GET['url'];
+                
+                $result = $uploader->handleUploadFromURL($uploadDir,$urlImage);
+
+		if(!empty($result['imagePath'])){
+			$imagePath = $result['imagePath'];
+			//$basePath - origin file location
+			$imageObj = new Varien_Image($imagePath);
+			$imageObj->constrainOnly(TRUE);
+			$imageObj->keepAspectRatio(FALSE);
+			$imageObj->keepFrame(FALSE);
+			//$width, $height - sizes you need (Note: when keepAspectRatio(TRUE), height would be ignored)
+			$imageObj->resize(100, 80);
+			$imageResizePath = dirname($imagePath).self::DS.'thumb_'.basename($imagePath);
+			$imageObj->save($imageResizePath);
+			
+			$result['imageThumbPath'] = $imageResizePath;
+			
+			$result['images'] = $this->getEffectThumbImagePath($result['imageThumbPath']);
+		}
+		echo htmlspecialchars(json_encode($result), ENT_NOQUOTES);
+	}
+        
+        
 	public function processMainImageAction(){
 		$imagePath = $this->getRequest()->getPost('image_path');
 		$effectId = $this->getRequest()->getPost('effect_id');
@@ -342,6 +378,23 @@ class qqUploadedFileForm {
     function getSize() {
         return $_FILES['qqfile']['size'];
     }
+} 
+
+
+class qqUploadedFileURL {  
+    /**
+     * Save the file to the specified path
+     * @return boolean TRUE on success
+     */
+    function save($path) {
+        return true;
+    }
+    function getName() {
+        return null;
+    }
+    function getSize() {
+        return null;
+    }
 }
 
 class qqFileUploader {
@@ -361,7 +414,11 @@ class qqFileUploader {
             $this->file = new qqUploadedFileXhr();
         } elseif (isset($_FILES['qqfile'])) {
             $this->file = new qqUploadedFileForm();
-        } else {
+        } 
+        elseif(isset($_GET['url'])) {
+            $this->file = new qqUploadedFileURL();
+        }
+        else {
             $this->file = false; 
         }
     }
@@ -442,7 +499,43 @@ class qqFileUploader {
                 'The upload was cancelled, or server error encountered');
         }
         
-    }    
+    } 
+    
+    
+    //Johnny add upload file from URL
+     function handleUploadFromURL($uploadDirectory,$url){
+    	
+    	if(!is_dir($uploadDirectory)){
+			mkdir($uploadDirectory);
+		}
+        if (!is_writable($uploadDirectory)){
+            return array('error' => "Server error. Upload directory isn't writable.");
+        } 
+        
+        // Get file from URL
+        $filename = basename($url);
+        $ext = end(explode(".",strtolower($filename)));
+        
+        if($this->allowedExtensions && !in_array(strtolower($ext), $this->allowedExtensions)){
+            $these = implode(', ', $this->allowedExtensions);
+            return array('error' => 'File has an invalid extension, it should be one of '. $these . '.');
+        }
+        
+        $uploaded = file_put_contents($uploadDirectory . $filename . '.' . $ext,file_get_contents($url));
+        
+        if ($uploaded>0){
+        	$sessionId = Mage::helper('picasso')->getSessionId();
+			$imageUrl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA).'picasso/uploads/'.$sessionId.'/'.$filename.'.' . $ext;
+			$uploadDir = MAGENTO_ROOT.self::DS.'media'.self::DS.'picasso'.self::DS.'uploads'.self::DS.$sessionId.self::DS;
+            $uploadDir = str_replace("\\", self::DS, $uploadDir);
+			$imagePath = $uploadDir.$filename . '.' . $ext;
+			return array('success'=>true,'imageUrl'=>$imageUrl,'imagePath' => $imagePath,'fileName'=>$filename . '.' . $ext,'uploadDir'=>$uploadDir);
+        } else {
+            return array('error'=> 'Could not save uploaded file.' .
+                'The upload was cancelled, or server error encountered');
+        }
+        
+    }
     
     
 }

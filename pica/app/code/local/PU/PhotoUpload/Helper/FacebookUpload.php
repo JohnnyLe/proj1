@@ -48,14 +48,14 @@ class  FacebookUpload extends BaseUpload {
             if ($this -> facebook -> getUser() == 0) {
                 // die("facebook initialized.");
 
-                // header('Location:' . $this -> facebook -> getLoginUrl(array(
-                // 'scope' => 'email,offline_access,publish_stream,user_birthday,user_location,user_work_history,user_about_me,user_hometown',
-                // 'redirect_uri' => $fbconfig['baseurl']
-                // )));
+                header('Location:' . $this -> facebook -> getLoginUrl(array(
+                 'scope' => 'user_photos',
+                 'redirect_uri' => $this -> redirectURI
+                )));
 
                 // After user have logged on to facebook, facebook api will redirect user to the previous page user is standing with code.
                 // In this case, this URL is: pical.loca/authorize.
-                header('Location:' . $this -> facebook -> getLoginUrl());
+                //header('Location:' . $this -> facebook -> getLoginUrl());
                 exit ;
             }
         } catch(Exception $e) {
@@ -76,7 +76,7 @@ class  FacebookUpload extends BaseUpload {
         // Get user's profile and user's photos.
         try {
             $userID = $this -> facebook -> getUser();
-
+            
             if ($userID != 0) {
 
                 // Get user's profile to get user id.
@@ -84,10 +84,13 @@ class  FacebookUpload extends BaseUpload {
 
                 // Get list of albums.
                 $albums = $this -> facebook -> api('/me/albums');
+
+                $tempPhoto='';
                 foreach ($albums['data'] as $album) {
                     $photos = $this -> facebook -> api('/' . $album['id'] . '/photos');
                     foreach ($photos as $photo) {
                         array_push($list_of_photos, $photo);
+                        $tempPhoto=$tempPhoto . $photo;
                     }
                 }
             } else {
@@ -100,13 +103,14 @@ class  FacebookUpload extends BaseUpload {
             echo json_encode(array("user_profile" => $user_profile));
             exit ;
         }
-
+        
+        $this -> writeLog('get list photo ... userID ' . $userID . '| photo' . $tempPhoto . '| albums' . $albums);
         return $list_of_photos;
     }
 
     public function writeLog($data) {
         // open log file
-        $filename = "D://log.txt";
+        $filename = "PU_Facebook_log.txt";
         $fh = fopen($filename, "w+") or die("Could not open log file.");
         fwrite($fh, date("d-m-Y, H:i") . " - $data\n") or die("Could not write file!");
         fclose($fh);

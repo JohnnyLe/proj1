@@ -65,6 +65,7 @@ class PU_PhotoUpload_IndexController extends Mage_Core_Controller_Front_Action {
             if ($type == 'facebook') {
                 // Save facebook code to session.
                 Mage::getSingleton("core/session") -> setFacebookCode($_GET['code']);
+                $this ->  writeLog('authenticated facebook' . $facebook -> getUser());
             }
 
             $this -> autoCloseWindow();
@@ -73,11 +74,18 @@ class PU_PhotoUpload_IndexController extends Mage_Core_Controller_Front_Action {
 
         // Get facebook code from store's session. User logged in, not get code from facebook again.
         // Lan dau tra ve code sau do goi getUser no se tra ve user id, nhung lan sau no se khong tra ve code nua vi da authorize roi.
-        $facebook_code = Mage::getSingleton("core/session") -> getFacebookCode();
-        if (isset($facebook_code) && !empty($facebook_code)) {
-            $this -> autoCloseWindow();
+        if ($type == 'facebook')
+        {    
+          $facebook_code = Mage::getSingleton("core/session") -> getFacebookCode();
+           if (isset($facebook_code) && !empty($facebook_code)) {
+             $this -> autoCloseWindow();
+          }
         }
-
+        if ($type == 'instagram')
+        {    
+               $instagram = new InstagramUpload();
+               $instagram -> authorize();
+        }
         if (!isset($type) || empty($type)) {
             return json_encode(array("error" => "Type not null"));
         }
@@ -151,7 +159,7 @@ class PU_PhotoUpload_IndexController extends Mage_Core_Controller_Front_Action {
 
     function writeLog($data) {
         // open log file
-        $filename = "D://log.txt";
+        $filename = "PU_Index_log.txt";
         $fh = fopen($filename, "w+") or die("Could not open log file.");
         fwrite($fh, date("d-m-Y, H:i") . " - $data\n") or die("Could not write file!");
         fclose($fh);
